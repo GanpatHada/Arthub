@@ -1,38 +1,128 @@
-.App {
-  text-align: center;
+*{
+  font-family: 'Lato', sans-serif!important;
+}
+.ty{
+  font-weight:bolder;
+  font-size: 0.95rem;
+}
+.form-control:focus{
+  outline: none!important;
+  border: 1px solid grey!important;
+  box-shadow: none!important;
+}
+a{
+  text-decoration: none;
+}
+.navbar{
+  z-index: 6!important;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* sellitems css begins here */
+.outercontainer{
+  width: 70%;
+  height: 500px;
+  margin: 0px auto;
+  margin-top: 30px;
+  padding: 10px;
+  padding-bottom: 0px;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+#uploadheading{
+  width: 100%;
+  height: 10%;
+  background-color: aliceblue;
+  border: 1px solid grey;
+  border-bottom: 0px;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+#maincontainer{
+  display: flex;
+  width: 100%;
+  height: 85%;
+  background: rgb(253, 255, 255);
+  padding: 10px;
+  border: 1px solid grey;
+  border-top: 0px;
+  border-radius: 8px;
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+}
+#lcontainer{
+  width: 50%;
+  height: 100%;
+  background-color: pink;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+}
+#rcontainer{
+  width: 50%;
+  height: 100%;
+  background-color: rgb(255, 255, 255);
+  
+}
+.uploadimage{
+  width: 100%;
+  height: 70%;
+  background-color: rgb(219, 219, 219);
+  padding: 10px;
+  border: 1px solid grey;
+}
+#myimage{
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.uploadbutton{
+  width: 100%;
+  height: 32%;
+  background-color: rgb(255, 255, 255);
+  padding: 20px;
 }
 
-.App-link {
-  color: #61dafb;
-}
+@media(max-width:768px)
+{
+  .navcol{
+     justify-content: left!important;
+  }
+  #maincontainer{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background: rgb(250, 251, 252);
+    margin: 0px auto;
+    padding: 10px;
+  }
+  #lcontainer{
+    width: 100%;
+    background-color: rgb(250, 250, 250);
+    display: flex;
+    flex-direction: column;
+  }
+  #rcontainer{
+    width: 100%;
+    background-color: rgb(255, 255, 255);
+    
+  }
+  .uploadimage{
+    min-height: 150px;
+    max-height: 100%;
+  }
+  .outercontainer{
+    width: 100%;
+    margin: 0px auto;
+    margin-top: 30px;
+    height: fit-content;
+    padding-bottom: 10px;
+  }
+  #uploadheading{
+    width: 100%;
+    height: 10%;
+    background-color: aliceblue;
+  }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
   }
-  to {
-    transform: rotate(360deg);
-  }
-}
+  
+  
+  
+
