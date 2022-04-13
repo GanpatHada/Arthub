@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/react-gh-pages/static/css/main.9ccf3fa4.css",
-    "main.js": "/react-gh-pages/static/js/main.639de4d8.js",
-    "static/media/newlogo.png": "/react-gh-pages/static/media/newlogo.70d2ecb74de487f81d63.png",
-    "static/media/logo.svg": "/react-gh-pages/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
-    "index.html": "/react-gh-pages/index.html",
-    "static/media/trash.svg": "/react-gh-pages/static/media/trash.43abd16f54731d4913dce221c9e37631.svg",
-    "static/media/cart4.svg": "/react-gh-pages/static/media/cart4.957ad81acf2afa91bffa61c1545906bc.svg",
-    "main.9ccf3fa4.css.map": "/react-gh-pages/static/css/main.9ccf3fa4.css.map",
-    "main.639de4d8.js.map": "/react-gh-pages/static/js/main.639de4d8.js.map"
+    "main.css": "/Arthub/static/css/main.9ccf3fa4.css",
+    "main.js": "/Arthub/static/js/main.e3eccfda.js",
+    "static/media/newlogo.png": "/Arthub/static/media/newlogo.70d2ecb74de487f81d63.png",
+    "static/media/logo.svg": "/Arthub/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "index.html": "/Arthub/index.html",
+    "static/media/trash.svg": "/Arthub/static/media/trash.43abd16f54731d4913dce221c9e37631.svg",
+    "static/media/cart4.svg": "/Arthub/static/media/cart4.957ad81acf2afa91bffa61c1545906bc.svg",
+    "main.9ccf3fa4.css.map": "/Arthub/static/css/main.9ccf3fa4.css.map",
+    "main.e3eccfda.js.map": "/Arthub/static/js/main.e3eccfda.js.map"
   },
   "entrypoints": [
     "static/css/main.9ccf3fa4.css",
-    "static/js/main.639de4d8.js"
+    "static/js/main.e3eccfda.js"
   ]
 }
