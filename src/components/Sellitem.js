@@ -57,10 +57,10 @@ const Sellitem = () => {
                 alert("sorry! something error has been occured");
             }
             else{
-                {
+                
                     alert("uploaded successfuly")
                     console.log(json.message)
-                }
+                
             }
         }
     }
@@ -72,8 +72,8 @@ const Sellitem = () => {
             <div id="maincontainer">
                 <div id="lcontainer">
                     <div className="uploadimage d-flex justify-content-center align-items-center">
-                        {spstatus == false && <img src={status} alt="No image" id="myimage" />}
-                        {spstatus == true && <Spinner />}
+                        {spstatus === false && <img src={status} alt="..." id="myimage" />}
+                        {spstatus === true && <Spinner />}
                     </div>
                     <div className="uploadbutton d-flex justify-content-center align-items-center">
                         <form className='d-flex-column'>

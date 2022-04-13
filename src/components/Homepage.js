@@ -12,6 +12,8 @@ import Login from './Login';
 import Sellercreateaccount from './seller/Sellercreateaccount'
 import Mycart from './Mycart';
 import Sellitem from './Sellitem';
+import Sellinghistory from './seller/Sellinghistory';
+import Accountdetails from './Accountdetails';
 const Homepage = () => {
   return (
     <>
@@ -21,7 +23,10 @@ const Homepage = () => {
     <Navbar/>
     <Routes>
       <Route exact path="/" element={<Product/>}/>
-      <Route exact path="/about" element={<Sellitem/>}/>
+      <Route exact path="/about" element={<About/>}/>
+      <Route exact path="/accountdetails" element={<Accountdetails/>}/>
+      <Route exact path="/uploaditems" element={<Sellitem/>}/>
+      <Route exact path="/sellinghistory" element={<Sellinghistory/>}/>
       <Route exact path="/Login" element={<Login/>}/>
         <Route exact path="createaccount" element={<Sellercreateaccount/>}></Route>
       <Route exact path="/mycart" element={<Mycart/>}/>  
