@@ -16,7 +16,10 @@ a{
 .navbar{
   z-index: 6!important;
 }
-
+/* //for hr inside buyrequest.js */
+.ucontainer > hr{
+  margin: 0px;
+}
 
 /* sellitems css begins here */
 .outercontainer{
@@ -87,6 +90,7 @@ a{
   object-fit: cover;
   border-radius: 50%;
 }
+
 @media(max-width:768px)
 {
   .navcol{

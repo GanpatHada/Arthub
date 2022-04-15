@@ -1,8 +1,10 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import ProductContext from '../context/Productcontex'
 
 const About = () => {
+  const a=useContext(ProductContext)
   return (
-    <div>this is about page</div>
+    <div>{a.name}</div>
   )
 }
 

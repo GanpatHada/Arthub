@@ -5,7 +5,7 @@ const Navbar = () => {
   
 
   return (
-    <nav className="navbar navbar-expand-sm navbar-light bg-light p-0" style={{ position: "sticky", top: "0px" }}>
+    <nav className="navbar navbar-expand-sm navbar-light bg-light p-2" style={{ position: "sticky", top: "0px" }}>
       <div className="container-fluid pe-1">
         <NavLink className="navbar-brand pt-0 pb-0 mb-1" to="/">
           <img src={logo} alt="" height="35px" />
@@ -27,7 +27,8 @@ const Navbar = () => {
               </div>
               <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
                 <li><NavLink className="dropdown-item" to="/uploaditems">Upload Art</NavLink></li>
-                <li><hr className="dropdown-divider" /></li>
+                <li><NavLink className="dropdown-item" to="/buyrequest">Buy Request</NavLink></li>
+                <hr className="dropdown-divider" />
                 <li><NavLink className="dropdown-item" to="/sellinghistory">Selling History</NavLink></li>
               </ul>
             </li>
