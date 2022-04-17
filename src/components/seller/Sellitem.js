@@ -12,7 +12,6 @@ const Sellitem = () => {
     })
     function imageUpload(e) {
         let selected = e.target.files[0];
-        console.log(selected)
         const storageRef = storage.ref(selected.name);
         storageRef.put(selected).on(
             "state.changed",
@@ -79,7 +78,7 @@ const Sellitem = () => {
                     <div className="uploadbutton d-flex justify-content-center align-items-center">
                         <form className='d-flex-column'>
                             <div className='text-center'>
-                                <input type="file" accept=".png, .jpg, .jpeg .svg" style={{ width: "100%" }} onChange={imageUpload} id="myfile" />
+                                <input type="file" accept="image/*" style={{ width: "100%" }} onChange={imageUpload} id="myfile" />
                             </div>
                         </form>
                     </div>
@@ -96,6 +95,7 @@ const Sellitem = () => {
                                 className=" form-control form-control-sm"
                                 id="title"
                                 placeholder='Enter title'
+                                maxLength="20"
                                 required />
 
                         </div>
@@ -104,16 +104,18 @@ const Sellitem = () => {
                             <input type="text"
                                 className=" form-control form-control-sm"
                                 id="description"
-                                placeholder='Enter description'
+                                placeholder='Enter short description maximum 60 letters'
+                                maxLength="60"
                                 required />
                         </div>
                         <div className="mb-3">
 
                             <select className="form-select form-select-sm" aria-label="Default select example" id="category">
-                                <option autoselected="true">oil painting</option>
-                                <option value="1">Acrylic painting</option>
-                                <option value="2">pastel painting</option>
-                                <option value="3">poster painting</option>
+                                <option autoselected="true">Digital painting</option>
+                                <option value="1">Oil painting</option>
+                                <option value="2">Acrylic painting</option>
+                                <option value="3">pastel Drawing</option>
+                                <option value="4">poster </option>
                             </select>
                         </div>
 

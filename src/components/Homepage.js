@@ -10,12 +10,13 @@ import {
 import About from './About';
 import Login from './Login';
 import Sellercreateaccount from './seller/Sellercreateaccount';
-import Mycart from './buyer/Mycart';
 import Sellitem from './seller/Sellitem';
 import Sellinghistory from './seller/Sellinghistory';
 import Accountdetails from './Accountdetails';
 import Buyrequest from './seller/Buyrequest';
 import ProductState from '../context/ProductState';
+import Wishlist from './buyer/Wishlist'
+import Mystore from './buyer/Mystore';
 const Homepage = () => {
   return (
     <>
@@ -32,7 +33,8 @@ const Homepage = () => {
       <Route exact path="/buyrequest" element={<Buyrequest/>}/>
       <Route exact path="/Login" element={<Login/>}/>
         <Route exact path="createaccount" element={<Sellercreateaccount/>}></Route>
-      <Route exact path="/mycart" element={<Mycart/>}/>  
+      <Route exact path="/wishlist" element={<Wishlist/>}/>  
+      <Route exact path="/mystore" element={<Mystore/>}/>  
     </Routes>
     </HashRouter>
     </ProductState>

@@ -5,22 +5,22 @@ import ProductContext from '../../context/Productcontex'
 import Spinner from '../Spinner'
 const Buyrequest = () => {
   const context=useContext(ProductContext);
-  const {product,fetchsellerproduct}=context;
+  const {unsoldproduct,fetch_seller_unsoldproduct,sellproduct}=context;
   useEffect(() => {
       document.getElementById("headerimage").style.display="none"
-      fetchsellerproduct();
+      fetch_seller_unsoldproduct();
       
-  })
+  },[sellproduct])
   
   return (
     <div className="container-fluid p-3 " style={{backgroundColor:"skyblue"}}>
-        <div className="ucontainer" style={{backgroundColor:"white",borderRadius:"4px"}}>
+        <div className="ucontainer" style={{backgroundColor:"white"}}>
         <div className="header py-2 px-2 d-flex align-items-center">
             <h4><strong>Buy Requests</strong></h4>
-        </div><hr /><hr />
-            {product.map((newproduct)=>{
+        </div><hr />
+            {unsoldproduct.map((newproduct)=>{
               return(
-                <Requestitems key={newproduct._id} value={newproduct}/>
+                <Requestitems key={newproduct._id} value={newproduct} sellproduct={sellproduct}/>
               )
             })}
             

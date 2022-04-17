@@ -116,6 +116,9 @@
     width: 100%;
     object-fit: contain;
 }
+.part2 {
+    width: 20%;
+}
 .buyitems{
       max-height: 300px;
       width: 100%;
@@ -125,6 +128,7 @@
       /* padding:"7px",
       border:"1px fade grey" */
 }
+
 @media (max-width:576px)
 {
     .content{
@@ -171,17 +175,14 @@
 
     .part2{
         width: 100%!important;
-        height: 30vw;
-       
-    }
-    .part3{
-        width: 100%!important;
         
+       
     }
     .buyitems{
         display: flex;
         flex-direction: column;
         max-height: fit-content;
+        overflow: hidden;
 
     }
    
