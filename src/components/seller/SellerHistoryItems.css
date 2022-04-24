@@ -1,5 +1,5 @@
 .shi .container-fluid{
-   background-color: skyblue;
+   background-color: var(--bgcolor);
    padding: 15px;
 }
 .shi .ucontainer{

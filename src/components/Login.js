@@ -1,13 +1,10 @@
 import React from 'react'
 import logo from "./icons/newlogo.png"
-import { NavLink } from 'react-router-dom'
-import { useEffect } from 'react'
+import { NavLink, useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 const Login = () => {
+    let navigate=useNavigate();
     const [logintext, setlogintext] = useState("Login as Buyer")
-    useEffect(() => {
-        document.getElementById("headerimage").style.display = "none";
-    })
     const fun = () => {
         if (document.getElementById("radio2").checked)
             setlogintext("Login as Seller")
@@ -20,6 +17,7 @@ const Login = () => {
         const password=document.getElementById("password").value;
         if(document.getElementById("radio2").checked)
         {
+            try{
             const response = await fetch("http://localhost:8000/api/seller/login", {
                 method: 'POST',
                 headers: {
@@ -35,20 +33,60 @@ const Login = () => {
                 }
             else
                 {alert(`Login successfull as ${json.role}`); 
+                navigate('/Arthub');
+                window.location.reload(true);
+                
                 localStorage.setItem('token', json.token);
                 localStorage.setItem('name', json.name);
                 localStorage.setItem('role', json.role);
-            }  
+                localStorage.setItem('id', json.id);
+                
+             
+             } 
+        }catch(error)
+        {
+            console.log(error);
+            navigate("/servererror")
+
         }
+    }
         if(document.getElementById("radio1").checked)
         {
             
+            try{
+                const response = await fetch("http://localhost:8000/api/user/login", {
+                    method: 'POST',
+                    headers: {
+                        'Content-type': "application/json"
+                    },
+                    body: JSON.stringify({ emailphone:emailphone, password:password })
+                });
+                const json = await response.json();
+                console.log(json)
+                if (!json.success)
+                    {console.log(json.message);
+                        alert("sorry! something error has been occured");
+                    }
+                else
+                    {alert(`Login successfull as ${json.role}`); 
+                    localStorage.setItem('token', json.token);
+                    localStorage.setItem('name', json.name);
+                    localStorage.setItem('role', json.role);
+                    localStorage.setItem('id', json.id);
+                 
+                 } 
+            }catch(error)
+            {
+                console.log(error);
+                navigate("/servererror")
+    
+            }
         }
     }
     return (
 
         <div className='container'>
-            <form className='container py-4 pb-2' style={{ border: "1px solid #D3D3D3", borderRadius: "6px", overflow: "auto", marginTop: "40px", marginBottom: "60px" }} onSubmit={handleloginsubmit} >
+            <form className='container py-4 pb-2 bg-white' style={{ border: "1px solid #D3D3D3", borderRadius: "6px", overflow: "auto", marginTop: "40px", marginBottom: "60px" }} onSubmit={handleloginsubmit} >
 
                 <div className="d-flex justify-content-between">
                     <div className="header mb-2 text-center">

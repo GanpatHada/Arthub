@@ -1,9 +1,8 @@
 import React from 'react'
-import Header from './assets/Header';
 import Navbar from './assets/Navbar';
 import Product from './Product';
 import {
-  HashRouter,
+  BrowserRouter,
   Routes,
   Route,
 } from "react-router-dom";
@@ -17,15 +16,23 @@ import Buyrequest from './seller/Buyrequest';
 import ProductState from '../context/ProductState';
 import Wishlist from './buyer/Wishlist'
 import Mystore from './buyer/Mystore';
+import Loading from './assets/Loading';
+import PageNotFound from './assets/PageNotFound';
+import InternalServerError from './assets/InternalServerError';
+import ProductDetails from './ProductDetails';
+import Welcome from './Welcome';
+import BidHistory from './BidHistory';
 const Homepage = () => {
   return (
     <>
+    <BrowserRouter>
     <ProductState>
-    <HashRouter>
-    <Header/>
     <Navbar/>
     <Routes>
-      <Route exact path="/" element={<Product/>}/>
+      <Route exact path="/Arthub" element={<Product/>}/>
+      <Route exact path="/productdetails" element={<ProductDetails/>}/>        
+      <Route exact path="/bidhistory" element={<BidHistory/>}/>        
+      <Route exact path="/Welcome" element={<Welcome/>}/>        
       <Route exact path="/about" element={<About/>}/>
       <Route exact path="/accountdetails" element={<Accountdetails/>}/>
       <Route exact path="/uploaditems" element={<Sellitem/>}/>
@@ -35,9 +42,12 @@ const Homepage = () => {
         <Route exact path="createaccount" element={<Sellercreateaccount/>}></Route>
       <Route exact path="/wishlist" element={<Wishlist/>}/>  
       <Route exact path="/mystore" element={<Mystore/>}/>  
+      <Route exact path="/mystoree" element={<Loading/>}/>  
+      <Route exact path="/servererror" element={<InternalServerError/>}/>  
+      <Route exact path="*" element={<PageNotFound/>} />
     </Routes>
-    </HashRouter>
     </ProductState>
+    </BrowserRouter>
     </>
   )
 }

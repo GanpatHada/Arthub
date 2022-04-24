@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useEffect } from 'react'
 import SellerHistoryItems from './SellerHistoryItems'
 import ProductContext from '../../context/Productcontex'
 import './SellerHistoryItems.css'
@@ -8,7 +8,7 @@ const Sellinghistory = () => {
   useEffect(() => {
     document.getElementById("headerimage").style.display = "none";
     fetch_seller_soldproduct();
-  }, [])
+  }, [fetch_seller_soldproduct,soldproduct])
   return (
     <div className="shi">
       

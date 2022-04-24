@@ -1,12 +1,18 @@
 import React from 'react'
-import { useEffect } from 'react'
+import { useEffect, } from 'react'
 import { storage } from '../Firebase'
 import logo from '../icons/no_image.jpg'
 import { useState } from 'react'
 import Spinner from '../Spinner'
+import { useNavigate } from 'react-router-dom'
+import wordConverter from '../assets/WordConverter'
+
 const Sellitem = () => {
+    let navigate = useNavigate();
+    const [word, setword] = useState("zero rupee")
     const [status, setstatus] = useState(logo);
     const [spstatus, setspstatus] = useState(false);
+    const [progress, setprogress] = useState(0)
     useEffect(() => {
         document.getElementById("headerimage").style.display = "none";
     })
@@ -18,6 +24,7 @@ const Sellitem = () => {
             (snap) => {
                 setspstatus(true)
                 let percenatge = (snap.bytesTransferred / snap.totalBytes) * 100;
+                setprogress(Math.ceil(percenatge))
                 console.log(percenatge);
             },
             (err) => {
@@ -41,53 +48,46 @@ const Sellitem = () => {
             const title = document.getElementById("title").value;
             const description = document.getElementById("description").value;
             const select = document.getElementById("category");
-            const category=select.options[select.selectedIndex].value;
+            const category = select.options[select.selectedIndex].value;
             const price = document.getElementById("pprice").value;
+            if(price<1)
+                return alert("Enter valid price")
             const response = await fetch("http://localhost:8000/api/product/uploadproduct", {
                 method: 'POST',
                 headers: {
                     'Content-type': "application/json",
-                    'auth-token':localStorage.getItem('token')
+                    'auth-token': localStorage.getItem('token')
                 },
-                body: JSON.stringify({ image: status, title: title, description: description, category: category,price:price })
+                body: JSON.stringify({ image: status, title: title, description: description, category: category, price: price })
             });
             const json = await response.json();
             if (!json.success) {
                 console.log(json.message);
                 alert("sorry! something error has been occured");
             }
-            else{
-                
-                    alert("uploaded successfuly")
-                    console.log(json.message)
-                
+            else {
+
+                alert("uploaded successfuly")
+                console.log(json.message)
+
             }
         }
     }
     return (
-        <div className="outercontainer d-flex-column">
-            <div id="uploadheading" className='p-3 d-flex align-items-center'>
-                <strong>Upload your ArtWork</strong>
+        <div className="container my-4 d-flex-column ">
+            <div id="uploadheading" className='p-3 d-flex align-items-center sellitem'>
+                <h4><strong style={{color:"#0eafed"}}>Upload your ArtWork</strong></h4>
             </div>
-            <div id="maincontainer">
-                <div id="lcontainer">
-                    <div className="uploadimage d-flex justify-content-center align-items-center">
-                        {spstatus === false && <img src={status} alt="..." id="myimage" />}
-                        {spstatus === true && <Spinner />}
-                    </div>
-                    <div className="uploadbutton d-flex justify-content-center align-items-center">
-                        <form className='d-flex-column'>
-                            <div className='text-center'>
-                                <input type="file" accept="image/*" style={{ width: "100%" }} onChange={imageUpload} id="myfile" />
-                            </div>
-                        </form>
-                    </div>
-                </div>
+            <form onSubmit={handleSubmit}>
+            <div id="maincontainer" className='sellitem'>
+
                 <div id="rcontainer">
                     <div style={{ textAlign: "center" }} className="mt-4 mb-3">
-                        <h3> product details</h3>
+                        <h3> Product details</h3>
                     </div>
-                    <form className='p-4' onSubmit={handleSubmit}>
+                    <div className='p-4'>
+
+
                         <div className="mb-3">
 
                             <input
@@ -101,12 +101,14 @@ const Sellitem = () => {
                         </div>
                         <div className="mb-3">
 
-                            <input type="text"
+                            <textarea
                                 className=" form-control form-control-sm"
                                 id="description"
-                                placeholder='Enter short description maximum 60 letters'
-                                maxLength="60"
-                                required />
+                                placeholder='Enter short description'
+                                rows="4"
+                                style={{resize:"none"}}
+                                required>
+                                </textarea>
                         </div>
                         <div className="mb-3">
 
@@ -125,18 +127,34 @@ const Sellitem = () => {
                                 className="form-control form-control-sm"
                                 id="pprice"
                                 placeholder='Enter ammount'
-                                required />
+                                required
+                                onChange={(e)=>{setword(wordConverter(e.target.value))}} />
                         </div>
-                        <div className="d-flex justify-content-center">
-
-                            <button type="submit" className="btn btn-primary" style={{ width: "60%", marginTop: "30px" }}>Upload</button>
-                        </div>
+                        <i className="mb-2" style={{fontSize:"14px"}}>{word}</i>
 
 
 
-                    </form>
+
+                    </div>
                 </div>
+                <div className='mb-3 p-4 d-flex justify-content-center'>
+                    <input type="file" accept="image/*" onChange={imageUpload} id="myfile" />
+                </div>
+                <div id="lcontainer">
+                    <div className="uploadimage d-flex justify-content-center align-items-center">
+                        {spstatus === false && <img src={status} alt="..." id="myimage" />}
+                        {spstatus === true && <Spinner progress={progress}/>}
+                    </div>
+                </div>
+                <div className="d-flex justify-content-center mb-4">
+
+                    <button type="submit" className="card_button me-2" style={{ width: "30%", marginTop: "30px" }}>Upload</button>
+                    <button type="button" onClick={() => { navigate('/') }} className="card_button" style={{ width: "30%", marginTop: "30px" }}>Cancel</button>
+                </div>
+
             </div>
+            </form>
+
         </div>
     )
 }

@@ -1,15 +1,10 @@
 import React from 'react'
 import { useState } from 'react'
 import './Sellercreateaccount.css'
-import { useEffect } from 'react'
 import logo from "../icons/newlogo.png"
 import { NavLink } from 'react-router-dom'
 const Sellercreateaccount = () => {
     const [buttontext, setbuttontext] = useState("Create Buyer Account");
-    useEffect(() => {
-        document.getElementById("headerimage").style.display="none";
-    })
-    
     const fun=()=>{
         if(document.getElementById("radio22").checked)
             setbuttontext("Create Seller Account")
@@ -32,12 +27,12 @@ const Sellercreateaccount = () => {
             headers: {
                 'Content-type': "application/json"
             },
-            body: JSON.stringify({ name: name, email: email, phone: phone, password: password })
+            body: JSON.stringify({ name: name, email: email, phone: phone, password: password,role:"buyer" })
         });
         const json = await response.json();
         if (!json.success)
         {    console.log(json.message);
-            alert("sorry! something error has been occured");
+             alert("sorry! something error has been occured");
         }
         else
             alert(`registration successfull as ${json.role}`);
@@ -49,7 +44,7 @@ const Sellercreateaccount = () => {
                 headers: {
                     'Content-type': "application/json"
                 },
-                body: JSON.stringify({ name: name, email: email, phone: phone, password: password })
+                body: JSON.stringify({ name: name, email: email, phone: phone, password: password,role:"seller" })
             });
             const json = await response.json();
             if (!json.success)
@@ -62,7 +57,7 @@ const Sellercreateaccount = () => {
 }
     return (
         <div className='container'>
-            <form className='container py-4 pb-2' style={{ border: "1px solid #D3D3D3", borderRadius: "6px", overflow: "auto", marginTop: "40px", marginBottom: "60px" }} onSubmit={handleSubmit}>
+            <form className='container bg-white py-4 pb-2' style={{ border: "1px solid #D3D3D3", borderRadius: "6px", overflow: "auto", marginTop: "40px", marginBottom: "60px" }} onSubmit={handleSubmit}>
 
 
                 <div className="header mb-4 d-flex justify-content-between" >

@@ -1,9 +1,8 @@
-import React from 'react'
-
+import React, { useEffect } from 'react'
 const Wishlistitems = (props) => {
+  
   return (
     <div>
-         
         <div className="buyitems d-flex ">
             <div className="part1  p-2 " style={{width:"30%",border:"0.1px solid #D3D3D3"}}>
                  <img src={props.value.image} alt="" />

@@ -14,7 +14,7 @@ const Wishlist = () => {
 
 
   return (
-    <div className="container-fluid p-3 " style={{backgroundColor:"skyblue"}}>
+    <div className="container-fluid p-3 " style={{backgroundColor:"var(--bgcolor)"}}>
         <div className="ucontainer" style={{backgroundColor:"white"}}>
         <div className="header py-2 px-2 d-flex align-items-center">
             <h4><strong>Wishlist</strong></h4>

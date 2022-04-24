@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useEffect } from 'react'
 import ProductContext from '../../context/Productcontex'
 import Mystoreitems from './Mystoreitems';
 import '../seller/SellerHistoryItems.css'
@@ -6,9 +6,8 @@ const Mystore = () => {
   const context = useContext(ProductContext);
   const { mystore, fetch_user_myStore} = context;
   useEffect(() => {
-    document.getElementById("headerimage").style.display = "none";
     fetch_user_myStore();
-  }, [fetch_user_myStore])
+  }, [])
   return (
     <div className="shi">
       
