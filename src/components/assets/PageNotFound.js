@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 const PageNotFound = () => {
    
   return (
-   <div>
+   <div style={{height:"100vh"}}>
          <h2 className='text-center mt-4 text-black'>Error : <strong style={{color:"red"}}>404</strong></h2>
          <h5 className='text-center mt-3 text-dark'>Sorry: page not found</h5>
          <h6 className='text-center mt-4 text-dark'><Link className=' mx-auto mt-3 text-primary' to="/Arthub">go to homepage</Link></h6>

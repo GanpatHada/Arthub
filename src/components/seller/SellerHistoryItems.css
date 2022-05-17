@@ -8,7 +8,7 @@
 }
 .shi .card{
     z-index: 4;
-    height: 30vw;
+    height: 35vw;
     margin: 10px 0px;
     padding: 0.5vw;
 }
@@ -24,9 +24,29 @@
     border-style: solid;
 
 }
+#downloadbtn{
+    height: 3vw;
+    font-size: 1vw;
+    background-color:"#0eafed";
+}
+#downloadicon{
+    font-size: 2vw;
+}
+#downloadbtn:hover{
+    background-color: #1895c7 !important;
+}
+
 @media (max-width:576px){
     .shi .card{
-        height: 70vw;
+        height: 80vw;
+    }
+    #downloadbtn{
+        height: 6vw;
+        font-size: 3vw;
+    }
+   
+    #downloadicon{
+        font-size: 3vw;
     }
     .shi .card-body p{
         margin-bottom: 2vw;

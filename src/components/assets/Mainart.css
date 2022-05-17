@@ -1,0 +1,17 @@
+#mainart{
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 60px;
+    background-color:  rgb(10 9 9);
+    width: 100%;
+    margin-top: 60px;
+    overflow: hidden;
+}
+@media (max-width:"576px")
+{
+    img{
+        height: 200px;
+    }
+}

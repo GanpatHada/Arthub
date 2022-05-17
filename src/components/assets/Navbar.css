@@ -4,24 +4,28 @@
     border-radius: 20px;
     border-color: var(--navbg);
 }
+
 .nav-link{
     border-radius: 20px;
     transition: 0.1s;
     transition-timing-function: ease-in;
 }
-.active{
-    color: rgb(31, 152, 207) !important;
-    font-weight: bold;
-}
+
  .navbar{
     box-shadow: 0px 2px 5px 0px rgb(73, 73, 73)!important;
 }
+.dropdown-menu{
+    padding: 0px;
+}
+.dropdown-item.active, .dropdown-item:active{
+    background-color: var(--navbg);
+}
 #loginbutton{
     border-width: 1.5px;
-    background-color: transparent;
+    background-color: #0eafed;
     transition: 0.3s ease-in-out;
 }
 #loginbutton:hover{
-    background-color: #0eafed;
-    color: white;
+    background-color: transparent;
+    color: #0eafed;
 }

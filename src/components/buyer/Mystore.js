@@ -16,7 +16,7 @@ const Mystore = () => {
           <div className="header py-2 px-2 d-flex align-items-center">
             <h4><strong>My Store</strong></h4>
           </div><hr />
-          <div className="row px-4 pb-4">
+          <div className="row px-2 pb-4">
             {
               mystore.map((newmystore) => {
                 return (

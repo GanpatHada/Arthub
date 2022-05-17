@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=El+Messiri&family=Roboto&family=Zen+Loop&display=swap');
+#mainfooter{
+    height: 300px;
+    padding: 0px;
+}
+#social{
+    height: 120px;
+    background-color: whitesmoke;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.infobox{
+    display: flex;
+    flex-direction: column;
+    height: 80%;
+    padding: 10px;
+}
+#info{
+    padding-top: 10px;
+    min-height: 200px;
+    background-color: #282727;
+    display: flex;
+    justify-content: center;
+    font-family: 'El Messiri', sans-serif;
+    align-items: flex-start;
+}
+#mission{
+    margin-left: 30px;
+    width: 275px;
+}
+#links{
+    text-align: center;
+    width: 200px;
+    border-left: 1px solid grey;
+    border-right: 1px solid grey;
+    
+}
+#links a{
+    color: white;
+}
+#links a:hover{
+    color:#26E600;
+}
+#contact{
+    
+    width: 300px;
+    text-align: center;
+}
+#footericons img{
+    filter: grayscale(1);
+    cursor: pointer;
+}
+#footericons img:hover{
+    filter: none;
+}
+#social > h2{
+    text-align: center;
+    margin: 10px;
+    font-size: 38px;
+    font-weight: 600;
+    font-family: 'Zen Loop', cursive;
+    color: darkslategray;
+}
+#copyright{
+    height:60px;
+    width: 100%;
+    background-color:#282727;
+    
+    
+}
+#copyright > div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    width: 70%;
+    height: 59px;
+    background-color:#282727;
+    border-top: 2px dashed whitesmoke;
+    text-align: center;
+    
+}
+#copyright #inspan{
+    background: linear-gradient(90deg,#26E600,white);
+    -webkit-background-clip: text;
+    color: transparent;
+    
+}
+@media (max-width:576px){
+    #social > h2{
+        font-size: 30px;
+        font-weight: 600;
+        
+    }
+    #footericons img{
+        height: 30px;
+    }
+    #social{
+        height: 100px;
+    }
+    #info{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    #mission{
+        width: 100%;
+        margin-left: 0px;
+        padding-bottom: 0px;
+    }
+    #links{
+        width: 100%;
+        height: 100px;
+        padding-left: 10px;
+        text-align: left;
+        padding-top: 0px;
+    }
+    #contact{
+        width: 100%;
+        height: 100px;
+        text-align: left;
+    }
+    #copyright div{
+        padding-top: 10px;
+        width: 90%;
+    }
+}

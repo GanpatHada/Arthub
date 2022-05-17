@@ -4,10 +4,6 @@ const ProductDetails = () => {
   const context = useContext(ProductContext);
   const{details}=context;
   const{_id,title,description,price,sellerid,category,bid,purchasedby}=details;
-  useEffect(() => {
-      document.getElementById("headerimage").style.display="none";
-   })
-    
   return (
     <div className="container bg-light mt-4 pt-4 sellitem mx-auto mb-3" style={{position:"relative",width:"95%",border:"1px solid #d3d0d0",borderRadius:"5px"}}>
         <div className="detailsheading  d-flex align-content-center justify-content-center py-2">

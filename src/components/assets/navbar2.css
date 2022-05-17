@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat+Brush&family=Caveat:wght@500&family=El+Messiri:wght@600&family=Lora:ital@1&family=Teko:wght@300&family=Zen+Loop&display=swap');
+nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100vw;
+    background-color: black;
+    padding: 0px 10px;
+    overflow-y: hidden;
+    transition:height 0.2s;
+    position: fixed;
+    top: 0px;
+    z-index: 4;
+}
+#logo{
+    filter: invert();
+    height: 40px;
+}
+.active{
+    color:#26E600!important;
+}
+.navitems{
+    width: 8vw;
+    font-size: 18px;
+    display: inline-block;
+    padding: 10px 0px;
+    height: 98%;
+    text-align: center;
+    color: white;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+}
+section{
+    display: flex;
+    align-items: center;
+}
+.css-pwyk3z-MuiBadge-badge{
+    background-color: red!important;
+}
+#last{
+    display: flex;
+    justify-content: space-between;
+    width: 130px;
+}
+.navitems:hover{
+    background-color: rgb(30, 30, 30);
+    color: white;
+}
+@media (min-width:577px) and (max-width:766px)
+{
+    .navitems{
+        width: 60px;
+        font-size: 16px;
+    }
+
+}
+#togglemenu{
+    display: none;
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    color: white;
+    height: 40px;
+}
+
+@media (max-width:576px)
+{
+    nav{
+        align-items: flex-start;
+        flex-direction: column;
+        padding-bottom: 5px;
+        padding-top: 10px;
+        
+    }
+    #logo{
+        position: relative;
+        bottom: 2px;
+        height: 40px;
+    }
+    #middle{
+        margin-top: 10px;
+        flex-direction: column;
+        width: 100%;
+        
+    }
+    #togglemenu{
+        display: block;
+        
+    }
+    .navitems{
+        width: 100%;
+        text-align: left;
+    }
+    #last{
+        flex-direction: row;
+        width: 70%;
+        margin: auto;
+        justify-content: space-around;
+
+        
+    }
+}

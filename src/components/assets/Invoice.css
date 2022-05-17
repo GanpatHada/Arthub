@@ -1,0 +1,117 @@
+@import './navbar2.css';
+@import './Mainart.css';
+.paymentcontainer{
+    max-height: 550px;
+    width: 90%;
+    background-color: rgb(255, 255, 255);
+    padding: 20px;
+    margin: 100px auto;
+    position: relative;
+    letter-spacing: 0.7px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.paymentcontainer > .header{
+    height: 70px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+.invoice{
+    line-height: 5px;
+}
+#lblock,#rblock{
+    font-size: 1rem;
+    line-height: 4px;
+}
+
+#productheading{
+    background-color: black;
+    color: rgb(255, 255, 255);
+    padding:2px
+}
+footer{
+    height:60px;
+    background-color: black;
+    width: 100%;
+    color: rgb(228, 224, 224);
+    padding: 4px 0px 4px 0px;
+}
+@media (max-width:576px){
+    #lblock,#rblock,header,footer,#productheading,p{
+        font-size: 0.8rem;
+    }
+    .paymentlogo > img{
+        height: 40px;
+    }
+    .paymentcontainer > .header{
+        height: 50px;
+    }
+    h3{
+        font-size: 1rem;
+    }
+    h5{
+        font-size: 0.8rem;
+    }
+    .paymentcontainer{
+        letter-spacing: normal;
+        
+    }
+    
+}
+@media (max-width:299px){
+    .paymentcontainer{
+        letter-spacing: normal;
+        
+    }
+    #lblock,#rblock,header,footer,#productheading,p{
+        font-size: 0.7rem;
+    
+    }
+    #lblock,#rblock,.invoice{
+        line-height: 2px;
+    }
+    .paymentlogo > img{
+        height: 30px;
+    }
+    .paymentcontainer > .header{
+        height: 40px;
+    }
+    h3{
+        font-size: 0.9rem;
+    }
+    h5{
+        font-size: 0.7rem;
+    }
+   
+    
+}
+@media print {
+    .paymentcontainer{
+        border: 0.1px solid rgb(165, 165, 165);
+        -webkit-print-color-adjust:exact;
+        height: 400px;
+        font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        
+    }
+    #print{
+        display: none;
+    }
+    #mainnavbar{
+        display: none;
+    }
+    #mainart{
+        display: none!important;
+    }
+    #searchbox{
+        display: none!important;
+    }
+    #mainfooter{
+        display: none;
+    }
+    
+
+    
+ }
+ 

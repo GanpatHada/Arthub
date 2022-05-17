@@ -2,8 +2,11 @@ import React from 'react'
 import logo from "./icons/newlogo.png"
 import { NavLink, useNavigate } from 'react-router-dom'
 import { useState } from 'react'
+import Button from '@mui/material/Button';
+import Checkbox from '@mui/material/Checkbox';
 const Login = () => {
-    let navigate=useNavigate();
+    let navigate = useNavigate();
+    const [passwordtype, setpasswordtype] = useState("password")
     const [logintext, setlogintext] = useState("Login as Buyer")
     const fun = () => {
         if (document.getElementById("radio2").checked)
@@ -11,75 +14,79 @@ const Login = () => {
         else
             setlogintext("Login as Buyer")
     }
-    const handleloginsubmit=async(e)=>{
+    const handleCheckChange=()=>{
+        if(document.getElementById("check1").checked)
+          setpasswordtype('text');
+        else
+          setpasswordtype('password');  
+    }
+    const handleloginsubmit = async (e) => {
         e.preventDefault();
-        const emailphone=document.getElementById("emailphone").value;
-        const password=document.getElementById("password").value;
-        if(document.getElementById("radio2").checked)
-        {
-            try{
-            const response = await fetch("http://localhost:8000/api/seller/login", {
-                method: 'POST',
-                headers: {
-                    'Content-type': "application/json"
-                },
-                body: JSON.stringify({ emailphone:emailphone, password:password })
-            });
-            const json = await response.json();
-            console.log(json)
-            if (!json.success)
-                {console.log(json.message);
+        const emailphone = document.getElementById("emailphone").value;
+        const password = document.getElementById("password").value;
+        if (document.getElementById("radio2").checked) {
+            try {
+                const response = await fetch("http://localhost:8000/api/seller/login", {
+                    method: 'POST',
+                    headers: {
+                        'Content-type': "application/json"
+                    },
+                    body: JSON.stringify({ emailphone: emailphone, password: password })
+                });
+                const json = await response.json();
+                console.log(json)
+                if (!json.success) {
+                    console.log(json.message);
                     alert("sorry! something error has been occured");
                 }
-            else
-                {alert(`Login successfull as ${json.role}`); 
-                navigate('/Arthub');
-                window.location.reload(true);
-                
-                localStorage.setItem('token', json.token);
-                localStorage.setItem('name', json.name);
-                localStorage.setItem('role', json.role);
-                localStorage.setItem('id', json.id);
-                
-             
-             } 
-        }catch(error)
-        {
-            console.log(error);
-            navigate("/servererror")
+                else {
+                    localStorage.setItem('token', json.token);
+                    localStorage.setItem('name', json.name);
+                    localStorage.setItem('role', json.role);
+                    localStorage.setItem('id', json.id);
+                    alert(`Login successfull as ${json.role}`);
+                    navigate('/Arthub');
 
+                }
+            } catch (error) {
+                console.log(error);
+                navigate("/servererror")
+
+            }
         }
-    }
-        if(document.getElementById("radio1").checked)
-        {
-            
-            try{
+        if (document.getElementById("radio1").checked) {
+
+            try {
                 const response = await fetch("http://localhost:8000/api/user/login", {
                     method: 'POST',
                     headers: {
                         'Content-type': "application/json"
                     },
-                    body: JSON.stringify({ emailphone:emailphone, password:password })
+                    body: JSON.stringify({ emailphone: emailphone, password: password })
                 });
                 const json = await response.json();
                 console.log(json)
-                if (!json.success)
-                    {console.log(json.message);
-                        alert("sorry! something error has been occured");
-                    }
-                else
-                    {alert(`Login successfull as ${json.role}`); 
+                if (!json.success) {
+                    console.log(json.message);
+                    alert("sorry! something error has been occured");
+                }
+                else {
                     localStorage.setItem('token', json.token);
                     localStorage.setItem('name', json.name);
                     localStorage.setItem('role', json.role);
                     localStorage.setItem('id', json.id);
-                 
-                 } 
-            }catch(error)
-            {
+                    alert(`Login successfull as ${json.role}`);
+                    navigate("/Arthub");
+                    
+                    
+
+
+
+                }
+            } catch (error) {
                 console.log(error);
                 navigate("/servererror")
-    
+
             }
         }
     }
@@ -106,10 +113,14 @@ const Login = () => {
 
                     />
                 </div>
-
+         
                 <div className="mb-2">
                     <label htmlFor="password" autoComplete="true" className="form-label ty mb-1">Password</label>
-                    <input type="password" minLength="6" required className="form-control form-control-sm" id="password" />
+                    {<input type={passwordtype} minLength="6" required className="form-control form-control-sm" id="password" />}
+                </div>
+                <div className="mb-2  d-flex align-items-center justify-content-end">
+                    <input className="me-1"type="checkbox" id="check1" onChange={handleCheckChange} />
+                    <label className="" htmlFor="check1">show password</label>
                 </div>
                 <div className="mb-2">
                     <input className="me-1" type="radio" name='radio' id='radio1' defaultChecked onChange={fun} />
@@ -119,7 +130,8 @@ const Login = () => {
                 </div>
 
 
-                <button type="submit" className="btn btn-warning text-black mb-2 mt-3" style={{ width: "100%" }}>{logintext}</button>
+                {/* <button type="submit" className="card_button mb-2 mt-3" style={{ width: "100%" }}>{logintext}</button> */}
+                <Button type="submit" className="mb-2" variant="contained" style={{width:"100%",backgroundColor:"#0eafed"}}>{logintext}</Button>
                 <p>Don't have account <NavLink to="/createaccount"><strong>Sign up</strong></NavLink>&nbsp;here..</p>
 
 

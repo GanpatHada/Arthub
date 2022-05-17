@@ -1,15 +1,18 @@
-import React from 'react'
-import Footer from './assets/Footer'
+import React, { useEffect } from 'react'
 // import Serach from './assets/Serach'
 import Content from './Content'
 const Product = () => {
- 
+useEffect(() => {
+  document.getElementById("searchbox").style.display="flex";
+  document.getElementById("mainart").style.display="flex";
+}, [])
+
     
   return (
     <div>
           {/* <Serach /> */}
           <Content />
-          <Footer />
+          
     </div>
   )
 }

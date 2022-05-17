@@ -5,7 +5,9 @@ const Welcome = () => {
   let navigate=useNavigate();
   useEffect(() => {
     localStorage.clear();
-  })
+    document.getElementById("searchbox").style.display="flex";
+    document.getElementById("mainart").style.display="flex"
+  },[])
 
   return (
     <div className="welcome">

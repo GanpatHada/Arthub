@@ -15,7 +15,7 @@ const BidHistory = () => {
                     <div key={newmap._id}>
                         <hr />
                     <div className='d-flex-column justify-content-between' >
-                         <strong ><span style={{color:"#0eafed"}}>By : </span>&nbsp;&nbsp;{localStorage.getItem('id')===newmap.bname?"You":newmap.bname}</strong>
+                         <strong ><span style={{color:"#0eafed"}}>By : </span>&nbsp;&nbsp;{localStorage.getItem('id')===newmap.bname?<span style={{color:"green"}}>You</span>:<span>{newmap.bname}</span>}</strong>
                          <h5 style={{color:"grey"}}><span style={{color:"#0eafed"}}>Rs : </span>{newmap.bamt}</h5>
                     </div>
                     </div>

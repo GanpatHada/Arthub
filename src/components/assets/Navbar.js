@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import logo from '../icons/newlogo.png'
 // import cross from '../icons/x-lg.svg'
+import Switch from '@mui/material/Switch';
 // import ham from '../icons/list.svg'
 import { NavLink, useNavigate } from 'react-router-dom'
 import './Navbar.css'
@@ -31,40 +32,37 @@ const Navbar = () => {
         </button>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-lg-0">
-            <li className="nav-item ms-2">
-              {localStorage.getItem('role') && <NavLink className="nav-link" aria-current="page" to="/Arthub"  style={{color:"black"}}>Home</NavLink>}
-            </li>
-            <li className="nav-item ms-2">
-              <NavLink className="nav-link" to="/about" style={{color:"black"}}>About</NavLink>
-            </li>
+            {(localStorage.getItem('role'))&&<li className="nav-item ms-2">
+              <NavLink className="nav-link" aria-current="page" to="/Arthub"  style={{color:"black"}}>Home</NavLink>
+            </li>}
+            {(localStorage.getItem('role')) &&<li className="nav-item ms-2" data-bs-toggle="tooltip" data-bs-placement="bottom" title="about">
+              <NavLink className="nav-link" to="/about" style={{color:"black"}} >
+                 About 
+              </NavLink>
+            </li>}
             <li className="nav-item dropdown ms-2">
-             { localStorage.getItem('role') && <div className="nav-link dropdown-toggle"  style={{color:"black"}} id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              {(localStorage.getItem('role'))&&<div className="nav-link dropdown-toggle"  style={{color:"black"}} id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 Account
               </div>}
-              {localStorage.getItem('role') === 'seller' &&
+              {localStorage.getItem('role') === 'seller' ?
                 <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
                   <li><NavLink className="dropdown-item" to="/uploaditems">Upload Art</NavLink></li>
                   <li><NavLink className="dropdown-item" to="/buyrequest">Buy Request</NavLink></li>
-                  <hr className="dropdown-divider" />
                   <li><NavLink className="dropdown-item" to="/sellinghistory">Selling History</NavLink></li>
-                </ul>}
-
-                {!localStorage.getItem('role') === 'buyer' &&<ul className="dropdown-menu" aria-labelledby="navbarDropdown">
+                </ul>:
+                <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
                   <li><NavLink className="dropdown-item" to="/wishlist">My Wishlist</NavLink></li>
-                  <hr className="dropdown-divider" />
                   <li><NavLink className="dropdown-item" to="/mystore">My store</NavLink></li>
                 </ul>}
             </li>
-
+             
           </ul>
-          <form className="d-flex">
+          <form className="d-flex align-items-center">
             
             {/* <NavLink className="navbar-brand me-2" to="/accountdetails">
               <img src="https://nettv4u.com/imagine/23-10-2019/hrithik-roshan.jpg" data-bs-toggle="tooltip" data-bs-placement="top" title={localStorage.getItem('role')} alt="" id="profileimage" />
             </NavLink> */}
-             <div className="form-check form-switch my-auto me-2 ms-1">
-              <input className="form-check-input" type="checkbox" id="flexSwitchCheckDefault" title={"dark mode disabled"} />
-            </div>
+            <Switch />
             {(localStorage.getItem('role'))?<div className="dropdown me-2">
               <button className="btn btn-white dropdown-toggle" style={{appearance:"none"}} type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
               <img src="https://nettv4u.com/imagine/23-10-2019/hrithik-roshan.jpg" data-bs-toggle="tooltip" data-bs-placement="top" title={localStorage.getItem('role')} alt="" id="profileimage" />

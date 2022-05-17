@@ -8,8 +8,7 @@ const Wishlist = () => {
   const context=useContext(ProductContext);
   const {wishlist,fetch_user_Wishlist}=context;
   useEffect(() => {
-    document.getElementById("headerimage").style.display = "none";
-    fetch_user_Wishlist();
+     fetch_user_Wishlist();
   },[])
 
 

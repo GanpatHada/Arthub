@@ -12,6 +12,7 @@ const ProductState = (props) => {
     const [mystore, setmystore] = useState([])
     const [details, setdetails] = useState([])
     const [bidhistory, setbidhistory] = useState([])
+    const [paymentdetails, setpaymentdetails] = useState({})
 
     //api request for fetching requeste product to sell
     const fetch_seller_unsoldproduct = async () => {
@@ -56,6 +57,7 @@ const ProductState = (props) => {
         if (!json.success)
             return alert("something went wrong")
         else {
+            
             setsoldproduct(json.sellersoldproduct);
 
         }
@@ -117,7 +119,7 @@ const ProductState = (props) => {
     const fetch_user_Wishlist = async () => {
         try{
         setloading(true)
-        const response = await fetch("http://localhost:8000/api/user/wishlist", {
+        const response = await fetch("http://localhost:8000/api/user/wishlist2", {
             method: 'GET',
             headers: {
                 'Content-type': "application/json",
@@ -232,7 +234,7 @@ const ProductState = (props) => {
 
         const json = await response.json();
         if (!json.success)
-            return alert("warning :" + json.message)
+            return alert("Warning : Bid should be more than privious bid")
         alert("success:product has been added to wishlist");
         setloading(false)
         console.log(json)
@@ -248,7 +250,7 @@ const ProductState = (props) => {
         <ProductContext.Provider value={{
             unsoldproduct, wishlist, mystore, loading,
             fetch_seller_unsoldproduct, sellproduct, soldproduct, fetch_seller_soldproduct, fetch_user_Wishlist, fetch_user_myStore,
-            productlist, fetch_productlist, createBid,sendAlert,details,handleDetails,bidhistory,showBidHistory
+            productlist, fetch_productlist, createBid,sendAlert,details,handleDetails,bidhistory,showBidHistory,paymentdetails,setpaymentdetails
         }}>
             {props.children}
         </ProductContext.Provider>

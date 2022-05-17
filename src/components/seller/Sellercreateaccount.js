@@ -3,13 +3,21 @@ import { useState } from 'react'
 import './Sellercreateaccount.css'
 import logo from "../icons/newlogo.png"
 import { NavLink } from 'react-router-dom'
+import Button from '@mui/material/Button';
 const Sellercreateaccount = () => {
     const [buttontext, setbuttontext] = useState("Create Buyer Account");
+    const [passwordtype, setpasswordtype] = useState("password")
     const fun=()=>{
         if(document.getElementById("radio22").checked)
             setbuttontext("Create Seller Account")
         else
             setbuttontext("Create Buyer Account") 
+    }
+    const handleCheckChange=()=>{
+        if(document.getElementById("check2").checked)
+          setpasswordtype('text');
+        else
+          setpasswordtype('password');  
     }
     const handleSubmit = async(e) => {
         e.preventDefault();
@@ -65,8 +73,9 @@ const Sellercreateaccount = () => {
                     <img src={logo} alt="..." height="40px"/>
                 </div><hr />
                 <div className="mb-2">
-                    <label htmlFor="name" className="form-label ty mb-1">Your Name</label>
+                    <label htmlFor="name"  className="form-label ty mb-1">Your Name</label>
                     <input type="text" autoFocus
+                        maxLength="15"
                         required className="form-control form-control-sm"
                         id="name" aria-describedby="name"
                         autoComplete='true'
@@ -87,12 +96,16 @@ const Sellercreateaccount = () => {
                 </div>
                 <div className="mb-2">
                     <label htmlFor="password" className="form-label ty mb-1">Password</label>
-                    <input autoComplete='true' type="password" minLength="6" required className="form-control form-control-sm" id="password" placeholder='password must be atleast 6 characters' />
+                    <input autoComplete='true' type={passwordtype} minLength="6" required className="form-control form-control-sm" id="password" placeholder='password must be atleast 6 characters' />
                 </div>
                 <div className="mb-4">
                     <label htmlFor="cpassword" className="form-label ty mb-1">Confirm password</label>
-                    <input type="password" 
+                    <input type={passwordtype} 
                     autoComplete="true" required className="form-control form-control-sm" id="cpassword" />
+                </div>
+                <div className="mb-2  d-flex align-items-center justify-content-end">
+                    <input className="me-1"type="checkbox" id="check2" onChange={handleCheckChange} />
+                    <label className="" htmlFor="check1">show password</label>
                 </div>
                 <div className="mb-4 d-flex align-items-center">
                     <input className="ms-0" type="radio" name="radio" id='radio11' defaultChecked onChange={fun} />
@@ -100,7 +113,8 @@ const Sellercreateaccount = () => {
                     <input className="ms-4" type="radio" name="radio" id='radio22' onChange={fun}/>
                     <label className="ms-2" htmlFor="radio22">Seller</label>
                 </div>
-                <button type="submit" className="btn btn-info text-black mb-2" style={{ width: "100%" }}>{buttontext}</button>
+                {/* <button type="submit" className="card_button mb-2" style={{ width: "100%" }}>{buttontext}</button> */}
+                <Button type="submit" className="mb-2" variant="contained" style={{width:"100%",backgroundColor:"#0eafed"}}>{buttontext}</Button>
                 <p>By creating account, You agree out <a href="/"><strong>terms and condition</strong></a> and <a href=""><strong>private policy</strong></a></p><hr />
                 <p>already have an account <NavLink to="/Login"><strong>sign-in</strong></NavLink> here</p>
 
