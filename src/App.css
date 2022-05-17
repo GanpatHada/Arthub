@@ -2,6 +2,9 @@
 .margin50{
   padding-top: 50px;
 }
+p{
+  margin-bottom: 0px!important;
+}
 .ty{
   font-weight:bolder;
   font-size: 0.95rem;

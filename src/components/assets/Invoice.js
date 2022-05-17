@@ -20,7 +20,7 @@ const Invoice = () => {
                 </div>
                 <div className="invoice my-auto" style={{ textAlign: "right" }}>
                     <h3><strong>INVOICE</strong></h3>
-                    <p><strong>Order id : </strong><span>7478745</span></p>
+                    <div><strong>Order id : </strong><span>7478745</span></div>
                     <strong>Payment id : </strong><span>7478745</span>
                 </div>
 
@@ -33,7 +33,7 @@ const Invoice = () => {
                     <p>falana singh</p>
                     <p>falana singh</p>
                     <br /><br />
-                    <b><p>Payment</p></b>
+                    <b><div>Payment</div></b>
                     <p>success</p>
                 </div>
                 <div id="rblock" style={{ textAlign:"right" }}>
@@ -42,12 +42,12 @@ const Invoice = () => {
                     <p>falana singh</p>
                     <p>falana singh</p>
                     <br /><br />
-                    <b><p>Date and Time</p></b>
+                    <b><div>Date and Time</div></b>
                     <p>7478745</p>
                 </div>
 
             </div>
-            <div id="productheading">
+            <div id="productheading" className='mt-3'>
               <div> <span style={{textAlign:"right"}}> <strong>Product id : </strong>754654511516161</span></div>
             </div>
             <div className='d-flex justify-content-between my-3'>
@@ -55,9 +55,9 @@ const Invoice = () => {
                <p><span>Category</span></p> 
                <p><span>Price</span></p> 
             </div>
-            <footer className='text-center py-3' style={{lineHeight:"5px"}}>
-               <p> <span>© 2022 | All rights reserved | by Ganpat Hada</span></p>
-               <p>7847845784 , xyz@gmail.com</p>
+            <footer id="invoicefooter" className='text-center py-3' >
+               <div> <span>© 2022 | All rights reserved | by <span>Ganpat Hada</span> </span></div>
+               <span>7847845784 , xyz@gmail.com</span>
             </footer>
             <div className="d-flex justify-content-center mt-4">
         <Button type="button" className=" mb-2 me-2" id="print" variant="contained" onClick={handleprint} style={{width:"40px"}}>Print</Button>

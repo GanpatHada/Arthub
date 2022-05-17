@@ -15,6 +15,7 @@
     flex-direction: column;
     height: 80%;
     padding: 10px;
+    color: white;
 }
 #info{
     padding-top: 10px;
@@ -66,7 +67,7 @@
     height:60px;
     width: 100%;
     background-color:#282727;
-    
+    color: white;
     
 }
 #copyright > div{
@@ -107,7 +108,7 @@
     #mission{
         width: 100%;
         margin-left: 0px;
-        padding-bottom: 0px;
+        padding-bottom: 20px;
     }
     #links{
         width: 100%;
