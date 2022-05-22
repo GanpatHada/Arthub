@@ -1,28 +1,35 @@
 import React, { useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import './Welcome.css'
+import logo from './icons/newlogo.png'
 const Welcome = () => {
-  let navigate=useNavigate();
+  let navigate = useNavigate();
   useEffect(() => {
-    localStorage.clear();
-    document.getElementById("searchbox").style.display="flex";
-    document.getElementById("mainart").style.display="flex"
-  },[])
-
+    //   localStorage.clear();
+    document.getElementById("searchbox").style.display = "none";
+    document.getElementById("mainart").style.display = "none";
+    document.getElementById("mainnavbar").style.display = "none";
+  }, [])
   return (
     <div className="welcome">
+      <div id="demobox">
+        <img src={logo} alt="" height="50px" />
+        <Link to="/login"><button type="button" id="newloginbtn">Login</button></Link>
+      </div>
       <div className="box">
         <div>
-          <h1 className="Welcomeheading" style={{ color: "white" }}><b>Welcome to the<br /><span>Arthub</span>
-          </b></h1>
+          <div className="Welcomeheading" style={{ color: "white" }}><b>Welcome to the<br /><span>Arthub</span>
+          </b></div>
           <div id='contenttext'>
-          <p>Lorem ipsum dolor, sit  Voluptatem aperiam molestias magnam veniam quas repellat repellendus quod repudiandae rerum illum.</p>
+            <span>Lorem ipsum dolor, sit  Voluptatem aperiam molestias magnam veniam quas repellat repellendus quod repudiandae rerum illum.</span>
+          </div>
+          <div>
+            <button id="signupbutton" onClick={() => { navigate('/createaccount') }}>Create account</button>
+            <button id="loginbutton" onClick={() => { navigate('/login') }}>Login</button>
+
+          </div>
         </div>
-        <div>
-          <button className="button2" id="signupbutton" onClick={()=>{navigate('/createaccount')}}>Create account</button>
-        </div>
-        </div>
-       
+
       </div>
 
     </div>

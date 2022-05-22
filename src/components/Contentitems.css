@@ -1,0 +1,131 @@
+
+#bodysection{
+    display: flex;
+    flex-direction: column;
+    height: 15vw;
+    justify-content: space-around;
+    padding: 0px;
+}
+.bidform{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    height: 40px;
+
+}
+
+#bidfooter{
+    display: flex;
+    justify-content: space-between!important;
+}
+#bidfooter p{
+    color:black;
+    cursor: pointer;
+}
+#bidfooter p:hover{
+    text-decoration: underline;
+}
+#bid{
+    width: 60%;
+    height: 100%;
+}
+#pricesection{
+    font-family: 'Lobster';
+    font-size: large;
+    color: rgb(56, 56, 56);
+}
+#bid:focus{
+    border: 1px solid #26E600;
+}
+.form-control:focus{
+    box-shadow: none;
+  }
+#bidbtn{
+    width: 35%;
+    background-color: #26E600;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+#bidbtn:hover{
+    background-color:#20b102
+}
+
+
+@media (max-width:900px) and (min-width:577px)
+{
+    .bidform{
+        height: 30px;
+        width: 90%;
+        margin: auto;
+        justify-content: space-between;
+    }
+    #bodysection{
+        height: 120px;
+    }
+    #bidfooter p{
+        font-size: 0.8rem;
+    }
+    #bidbtn{
+        font-size: 0.8rem!important;
+    }
+    #bodysection #bid::placeholder{
+        font-size: 0.8rem;
+    }
+}
+@media (max-width:576px) and (min-width:447px)
+{
+    #contentcard{
+        width: 400px;
+        margin: 0px auto;
+    }
+    #bodysection{
+        height: 170px;
+    }
+    .bidform{
+        display: flex;
+        flex-direction: column;
+        height: auto;
+        
+    }
+    #bid,#bidbtn{
+        width: 100%;
+    }
+    #bidbtn{
+        margin-top: 5px;
+        margin-bottom: 10px;
+        height: 33px;
+    }
+    #pricesection{
+        font-size: large;
+    }
+    
+    
+}
+@media (max-width:446px)
+{
+    #contentcard{
+        width: 96%;
+        margin: 0px auto;
+    }
+    #bid,#bidbtn{
+        width: 95%;
+        margin: 0px auto;
+    }
+    #bodysection{
+        height: 150px;
+    }
+    .bidform{
+        display: flex;
+        flex-direction: column;
+        height: auto;
+    }
+    #bidbtn{
+        margin-top: 5px;
+        margin-bottom: 10px;
+        height: 33px;
+    }
+}

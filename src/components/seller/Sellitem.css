@@ -1,0 +1,59 @@
+#uploadbtn{
+    
+    width: 100px;
+    height: 40px;
+    background-color: #26E600;
+
+}
+#sellcontainer{
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+    border-radius: 4px;
+    border: 1px solid var(--boxbordercolor);
+    background-color: var(--boxbgcolor);
+}
+#uploadheading{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 10%;
+    background-color: rgb(255, 255, 255);
+    margin-top: 60px;
+    color: var(--maincolor);
+    
+  }
+#uploadheading h4{
+    text-align: center;
+}  
+#sellbtns{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+#uploadbtn:hover{
+    background-color: #1ca101;
+}
+#cancelbtn{
+    
+   width: 100px;
+   height: 40px;
+   background-color: black ;
+   margin-left: 10px;
+}
+@media (max-width:336px) {
+    #sellbtns{
+        display: flex;
+        flex-direction: column;
+    }
+    #uploadbtn{
+        width: 90%;
+        margin: 0px auto;
+    }
+    
+    #cancelbtn{
+        
+        width: 90%;
+        margin: 0px auto;
+        margin-top: 10px;
+    }
+    
+}

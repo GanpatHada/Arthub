@@ -9,7 +9,12 @@
     margin: 100px auto;
     position: relative;
     letter-spacing: 0.7px;
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family:'calibri';
+    border: 1px solid grey;
+    line-height: 1rem;
+}
+.paymentcontainer p{
+    margin-bottom: 0px;
 }
 .paymentcontainer > .header{
     height: auto;
@@ -17,7 +22,11 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    
 
+}
+.header h3{
+    color:var(--maincolor);
 }
 
 #lblock,#rblock{
@@ -28,7 +37,7 @@
 #productheading{
     background-color: black;
     color: rgb(255, 255, 255);
-    padding:2px
+    padding:8px
 }
 #invoicefooter{
     min-height: 60px;
@@ -36,6 +45,12 @@
     width: 100%;
     color: rgb(228, 224, 224);
     padding: 0px 5px;
+}
+#print{
+    background-color: var(--maincolor);
+}
+#print:hover{
+    background-color: var(--mainhover);
 }
 @media (max-width:576px){
     #lblock,#rblock,header,footer,#productheading,p{
@@ -91,7 +106,7 @@
         border: 0.1px solid rgb(165, 165, 165);
         -webkit-print-color-adjust:exact;
         height: auto;
-        font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-family:'Verdana';
         
     }
     #print{

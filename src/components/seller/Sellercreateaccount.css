@@ -1,11 +1,44 @@
-@media(min-width:576px)
+#createformbox{
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+  margin: 40px auto;
+  border-radius: 3px;
+  background-color: var(--boxbgcolor);
+  border: 1px solid var(--boxbordercolor);
+}
+
+#createformbox a{
+  color: var(--maincolor);
+}
+#createformbox .mybtn{
+  width: 100%;
+}
+@media(min-width:577px)
 {
   .container{
-     width: 95%;
+     
      padding-left: 20px!important;
      padding-right: 20px!important;
      max-width: 600px!important;
-     padding-top: 50px!important;
   }
   
+}
+@media(max-width:576px)
+{
+  .container{
+     width: 98%!important;
+     margin: 0px auto;
+     padding-left: 10px!important;
+     padding-right: 10px!important;
+    
+  }
+  
+}
+@media (max-width:246px)
+{
+  .mybtn{
+    height: 30px;
+  }
+  .mybtn{
+    font-size: 10px!important;
+  }
 }

@@ -1,10 +1,15 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useState } from 'react'
 import './Sellercreateaccount.css'
 import logo from "../icons/newlogo.png"
 import { NavLink } from 'react-router-dom'
 import Button from '@mui/material/Button';
+
 const Sellercreateaccount = () => {
+    useEffect(() => {
+        document.getElementById("searchbox").style.display="none";
+        document.getElementById("mainart").style.display="none";
+        document.getElementById("mainnavbar").style.display="none"}, [])
     const [buttontext, setbuttontext] = useState("Create Buyer Account");
     const [passwordtype, setpasswordtype] = useState("password")
     const fun=()=>{
@@ -64,8 +69,8 @@ const Sellercreateaccount = () => {
         }
 }
     return (
-        <div className='container'>
-            <form className='container bg-white py-4 pb-2' style={{ border: "1px solid #D3D3D3", borderRadius: "6px", overflow: "auto", marginTop: "40px", marginBottom: "60px" }} onSubmit={handleSubmit}>
+        <div className='container' >
+            <form className='container  py-4 pb-2' id="createformbox" onSubmit={handleSubmit}>
 
 
                 <div className="header mb-4 d-flex justify-content-between" >
@@ -114,7 +119,7 @@ const Sellercreateaccount = () => {
                     <label className="ms-2" htmlFor="radio22">Seller</label>
                 </div>
                 {/* <button type="submit" className="card_button mb-2" style={{ width: "100%" }}>{buttontext}</button> */}
-                <Button type="submit" className="mb-2" variant="contained" style={{width:"100%",backgroundColor:"#0eafed"}}>{buttontext}</Button>
+                <Button type="submit" className="mb-2 mybtn" variant="contained">{buttontext}</Button>
                 <p>By creating account, You agree out <a href="/"><strong>terms and condition</strong></a> and <a href=""><strong>private policy</strong></a></p><hr />
                 <p>already have an account <NavLink to="/Login"><strong>sign-in</strong></NavLink> here</p>
 

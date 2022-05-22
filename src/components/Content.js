@@ -9,7 +9,7 @@ const Content = () => {
   const {productlist,fetch_productlist,handleDetails,loading,createBid}=context;
   useEffect(() => {
     if(!localStorage.getItem('role'))
-        return nav('/Welcome');
+         return nav('/Welcome');
     fetch_productlist();
   },[])
   

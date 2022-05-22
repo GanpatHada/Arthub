@@ -7,7 +7,14 @@ import Spinner from '../Spinner'
 import { useNavigate } from 'react-router-dom'
 import wordConverter from '../assets/WordConverter'
 import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
+import './Sellitem.css'
+
 const Sellitem = () => {
+    useEffect(() => {
+        document.getElementById("searchbox").style.display="none";
+        document.getElementById("mainart").style.display="none";
+    }, [])
     let navigate = useNavigate();
     const [word, setword] = useState("zero rupee")
     const [status, setstatus] = useState(logo);
@@ -73,17 +80,17 @@ const Sellitem = () => {
     }
     return (
         <div className="container my-4 d-flex-column ">
-            <div id="uploadheading" className='p-3 d-flex align-items-center sellitem'>
-                <h4><strong style={{ color: "#0eafed" }}>Upload your ArtWork</strong></h4>
+            <div id="uploadheading" className='p-3 sellitem'>
+                <h4><strong >Upload your ArtWork</strong></h4>
             </div>
             <form onSubmit={handleSubmit}>
-                <div id="maincontainer" className='sellitem'>
+                <div id="sellcontainer" className='sellitem'>
 
                     <div id="rcontainer">
                         <div style={{ textAlign: "center" }} className="mt-4 mb-3">
-                            <h3> Product details</h3>
+                            <h3 id="pd"> Product details</h3>
                         </div>
-                        <div className='p-4'>
+                        <div className='p-3'>
 
 
                             <div className="mb-3">
@@ -95,6 +102,7 @@ const Sellitem = () => {
                                     placeholder='Enter title'
                                     maxLength="20"
                                     required />
+                               
 
                             </div>
                             <div className="mb-3">
@@ -144,10 +152,10 @@ const Sellitem = () => {
                             {spstatus === true && <Spinner progress={progress} />}
                         </div>
                     </div>
-                    <div className="d-flex justify-content-center mb-4">
+                    <div id="sellbtns" className="mb-4">
 
-                        <Button type="submit" className="mb-2 mt-4" variant="contained" style={{ width: "30%", height: "40px", backgroundColor: "#0eafed" }}>Upload</Button>
-                        <Button type="button" className="mb-2 mt-4 ms-2" variant="outlined" onClick={() => { navigate('/Arthub') }} style={{ color: "#0eafed", width: "30%", height: "40px", borderColor: "#0eafed" }}>Cancel</Button>
+                        <Button type="submit" id="uploadbtn" variant="contained">Upload</Button>
+                        <Button type="button" id="cancelbtn" variant="contained" onClick={() => { navigate('/Arthub') }}>Cancel</Button>
                     </div>
 
                 </div>

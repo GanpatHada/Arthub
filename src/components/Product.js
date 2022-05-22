@@ -5,7 +5,7 @@ const Product = () => {
 useEffect(() => {
   document.getElementById("searchbox").style.display="flex";
   document.getElementById("mainart").style.display="flex";
-}, [])
+  document.getElementById("mainnavbar").style.display="flex"}, [])
 
     
   return (

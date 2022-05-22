@@ -1,10 +1,15 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import logo from "./icons/newlogo.png"
 import { NavLink, useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 import Button from '@mui/material/Button';
 import Checkbox from '@mui/material/Checkbox';
+import './Login.css';
 const Login = () => {
+    useEffect(() => {
+        document.getElementById("searchbox").style.display="none";
+        document.getElementById("mainart").style.display="none";
+        document.getElementById("mainnavbar").style.display="none"}, [])
     let navigate = useNavigate();
     const [passwordtype, setpasswordtype] = useState("password")
     const [logintext, setlogintext] = useState("Login as Buyer")
@@ -44,8 +49,7 @@ const Login = () => {
                     localStorage.setItem('name', json.name);
                     localStorage.setItem('role', json.role);
                     localStorage.setItem('id', json.id);
-                    alert(`Login successfull as ${json.role}`);
-                    navigate('/Arthub');
+                    navigate('/');
 
                 }
             } catch (error) {
@@ -93,7 +97,7 @@ const Login = () => {
     return (
 
         <div className='container'>
-            <form className='container py-4 pb-2 bg-white' style={{ border: "1px solid #D3D3D3", borderRadius: "6px", overflow: "auto", marginTop: "40px", marginBottom: "60px" }} onSubmit={handleloginsubmit} >
+            <form id="loginformbox" className='container py-4 pb-2 ' onSubmit={handleloginsubmit} >
 
                 <div className="d-flex justify-content-between">
                     <div className="header mb-2 text-center">
@@ -122,7 +126,7 @@ const Login = () => {
                     <input className="me-1"type="checkbox" id="check1" onChange={handleCheckChange} />
                     <label className="" htmlFor="check1">show password</label>
                 </div>
-                <div className="mb-2">
+                <div className="mb-2 d-flex align-items-center " >
                     <input className="me-1" type="radio" name='radio' id='radio1' defaultChecked onChange={fun} />
                     <label className="me-3" htmlFor="radio1">Buyer</label>
                     <input className="me-1" type="radio" name='radio' id='radio2' onChange={fun} />
@@ -131,7 +135,7 @@ const Login = () => {
 
 
                 {/* <button type="submit" className="card_button mb-2 mt-3" style={{ width: "100%" }}>{logintext}</button> */}
-                <Button type="submit" className="mb-2" variant="contained" style={{width:"100%",backgroundColor:"#0eafed"}}>{logintext}</Button>
+                <Button type="submit" className="mb-2 mybtn" style={{width:"100%"}} variant="contained">{logintext}</Button>
                 <p>Don't have account <NavLink to="/createaccount"><strong>Sign up</strong></NavLink>&nbsp;here..</p>
 
 

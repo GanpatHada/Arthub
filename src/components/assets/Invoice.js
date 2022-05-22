@@ -19,9 +19,9 @@ const Invoice = () => {
                     <img src={logo} alt=".." height="50px" />
                 </div>
                 <div className="invoice my-auto" style={{ textAlign: "right" }}>
-                    <h3><strong>INVOICE</strong></h3>
-                    <div><strong>Order id : </strong><span>7478745</span></div>
-                    <strong>Payment id : </strong><span>7478745</span>
+                    <h3><b>INVOICE</b></h3>
+                    <strong>Payment id : </strong><span>7478745</span><br />
+                    <strong>Order id : </strong><span>7478745</span>
                 </div>
 
             </header>

@@ -1,9 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 :root{
-  --bgcolor:rgb(221, 228, 231);
-  --navbg:rgb(219, 244, 255);
+  
     box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
+    --maincolor:#26E600;
+    --mainhover:#1ca101;
+    --bgcolor:rgb(255, 255, 255); 
+    --boxbgcolor:rgba(243, 243, 243,0.7);
+    --boxbordercolor:rgb(241, 241, 241);
+    
     
 }
 body {
@@ -18,4 +23,5 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
 

@@ -10,7 +10,7 @@ nav{
     transition:height 0.2s;
     position: fixed;
     top: 0px;
-    z-index: 4;
+    z-index: 10;
 }
 #logo{
     filter: invert();
@@ -28,6 +28,7 @@ nav{
     text-align: center;
     color: white;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    transition: 0.15s ease-in-out;
 
 }
 section{
@@ -45,6 +46,7 @@ section{
 .navitems:hover{
     background-color: rgb(30, 30, 30);
     color: white;
+
 }
 @media (min-width:577px) and (max-width:766px)
 {

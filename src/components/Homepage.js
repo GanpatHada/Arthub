@@ -38,10 +38,10 @@ const Homepage = () => {
     <Mainart/>
     <Searchbox/>
     <Routes>
-      <Route exact path="/Arthub" element={<Product/>}/>
+      <Route exact path="/" element={<Product/>}/>
       <Route exact path="/productdetails" element={<ProductDetails/>}/>        
       <Route exact path="/bidhistory" element={<BidHistory/>}/>        
-      <Route exact path="/Welcome" element={<Welcome/>}/>        
+      <Route exact path="/Welcome" element={<Welcome/>}/>
       <Route exact path="/about" element={<Invoice/>}/>
       <Route exact path="/accountdetails" element={<Accountdetails/>}/>
       <Route exact path="/uploaditems" element={<Sellitem/>}/>

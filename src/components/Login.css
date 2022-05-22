@@ -1,0 +1,26 @@
+#loginformbox{
+    margin-top: 40px;
+    margin-bottom: 40px;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+    border: 1px solid var(--boxbordercolor);
+    border-radius: 3px;
+    background-color: var(--boxbgcolor);
+    
+}
+#loginformbox a{
+    color: var(--maincolor);
+}
+#loginbutton{
+    background-color: var(--maincolor);
+    width: 100%;
+    margin: 0px auto;
+}
+#loginbutton:hover{
+    background-color: var(--mainhover);
+}
+@media (max-width:375px)
+{
+    #loginformbox img{
+        height: 40px;
+    }
+}

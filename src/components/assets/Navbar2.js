@@ -22,8 +22,10 @@ import Settings from '@mui/icons-material/Settings';
 import Logout from '@mui/icons-material/Logout';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import LocalMallIcon from '@mui/icons-material/LocalMall';
+import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 // ------------------------------------
 const Navbar2 = () => {
+  const navigate=useNavigate();
   const [expand, setexpand] = useState(false);
   const [height, setheight] = useState("60px");
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -34,119 +36,121 @@ const Navbar2 = () => {
   const handleClose = () => {
     setAnchorEl(null);
   };
-  const toogle=()=>{
-    if(height=="60px")
-    {
+  const toogle = () => {
+    if (height == "60px") {
       setexpand(true);
       setheight("380px");
     }
-    else{
+    else {
       setexpand(false);
       setheight("60px");
     }
   }
+  const handleLogout=()=>{
+    if(window.confirm("Do you really want to Logout"))
+        {localStorage.clear();
+          navigate("/welcome");}
+    
+  }
   return (
-    <nav style={{height:height}} id="mainnavbar">
-      <section style={{width:"130px"}}>
+    <nav style={{ height: height }} id="mainnavbar">
+      <section style={{ width: "130px" }}>
         <img id="logo" src={logo} alt="..." />
       </section>
       <section id="middle">
-        <NavLink className="navitems" to="/Arthub">Home</NavLink>
+        <NavLink className="navitems" to="/">Home</NavLink>
         <NavLink className="navitems" to="/About">About</NavLink>
-        <NavLink className="navitems" to="/Arthub">Blogs</NavLink>
-        <NavLink className="navitems" to="/Arthub">Query</NavLink>
-        <NavLink className="navitems" to="/Arthub">Other</NavLink>
+        <NavLink className="navitems" to="/Art">Blogs</NavLink>
+        <NavLink className="navitems" to="/Art">Query</NavLink>
+        <NavLink className="navitems" to="/Art">Other</NavLink>
       </section>
       <section id="last">
-        <LightModeIcon style={{ color: "white" }} />
-        
-        <Badge badgeContent={4} color="success">
-         <NotificationsIcon style={{color:"white"}}/>
-        </Badge>
-        <Box sx={{ display: 'flex', alignItems: 'center', textAlign: 'center' }}>
-        <Tooltip title="My Account">
-          <IconButton
-            onClick={handleClick}
-            size="small"
-            sx={{ ml: 2 }}
-            aria-controls={open ? 'account-menu' : undefined}
-            aria-haspopup="true"
-            aria-expanded={open ? 'true' : undefined}
-          >
-            <Avatar sx={{ width: 32, height: 32 }}>M</Avatar>
-          </IconButton>
+        <Tooltip title="dark mode disabled"><LightModeIcon style={{ color: "white" }} /></Tooltip>
+        <Tooltip title="notifications">
+          <Badge badgeContent={4} color="success">
+            <NotificationsIcon style={{ color: "white" }} />
+          </Badge>
         </Tooltip>
-      </Box>
-      <Menu
-        anchorEl={anchorEl}
-        id="account-menu"
-        open={open}
-        onClose={handleClose}
-        onClick={handleClose}
-        PaperProps={{
-          elevation: 0,
-          sx: {
-            overflow: 'visible',
-            filter: 'drop-shadow(0px 2px 8px rgba(0,0,0,0.32))',
-            mt: 1.5,
-            '& .MuiAvatar-root': {
-              width: 32,
-              height: 32,
-              ml: -0.5,
-              mr: 1,
+        <Box sx={{ display: 'flex', alignItems: 'center', textAlign: 'center' }}>
+          <Tooltip title="Seller Account">
+            <IconButton
+              onClick={handleClick}
+              size="small"
+              sx={{ ml: 0 }}
+              aria-controls={open ? 'account-menu' : undefined}
+              aria-haspopup="true"
+              aria-expanded={open ? 'true' : undefined}
+            >
+              <Avatar sx={{ width: 32, height: 32 }} >S</Avatar>
+            </IconButton>
+          </Tooltip>
+        </Box>
+        <Menu
+          anchorEl={anchorEl}
+          id="account-menu"
+          open={open}
+          onClose={handleClose}
+          onClick={handleClose}
+          PaperProps={{
+            elevation: 0,
+            sx: {
+              overflow: 'visible',
+              filter: 'drop-shadow(0px 2px 8px rgba(0,0,0,0.32))',
+              mt: 1.5,
+              '& .MuiAvatar-root': {
+                width: 32,
+                height: 32,
+                ml: -0.5,
+                mr: 1,
+              },
+              '&:before': {
+                content: '""',
+                display: 'block',
+                position: 'absolute',
+                top: 0,
+                right: 14,
+                width: 10,
+                height: 10,
+                bgcolor: 'background.paper',
+                transform: 'translateY(-50%) rotate(45deg)',
+                zIndex: 0,
+              },
             },
-            '&:before': {
-              content: '""',
-              display: 'block',
-              position: 'absolute',
-              top: 0,
-              right: 14,
-              width: 10,
-              height: 10,
-              bgcolor: 'background.paper',
-              transform: 'translateY(-50%) rotate(45deg)',
-              zIndex: 0,
-            },
-          },
-        }}
-        transformOrigin={{ horizontal: 'right', vertical: 'top' }}
-        anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
-      >
-        <MenuItem>
-          <Avatar /> Profile
-        </MenuItem>
-        <MenuItem>
-          <ListItemIcon>
-            <ShoppingCartIcon fontSize="small" />
-          </ListItemIcon>
-          Wishlist
-        </MenuItem>
-        <MenuItem>
-          <ListItemIcon>
-            < LocalMallIcon fontSize="small" />
-          </ListItemIcon>
-          My Store
-        </MenuItem>
-        
-        <Divider />
-        <MenuItem>
-          <ListItemIcon>
-            <Settings fontSize="small" />
-          </ListItemIcon>
-          Settings
-        </MenuItem>
-        <MenuItem>
-          <ListItemIcon>
-            <Logout fontSize="small" />
-          </ListItemIcon>
-          Logout
-        </MenuItem>
-      </Menu>
+          }}
+          transformOrigin={{ horizontal: 'right', vertical: 'top' }}
+          anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
+        >
+          <MenuItem>
+            <Avatar /> Profile
+          </MenuItem>
+          <MenuItem>
+
+            <NavLink className='d-flex align-items-center' style={{ color: "#000000DE" }} to="/uploaditems"> <ListItemIcon>
+              <CloudUploadIcon fontSize="small" />
+            </ListItemIcon>Upload art</NavLink>
+          </MenuItem>
+          <MenuItem>
+
+            <NavLink className='d-flex align-items-center' style={{ color: "#000000DE" }} to="/mystore"><ListItemIcon>
+              < LocalMallIcon fontSize="small" />
+            </ListItemIcon>My store</NavLink>
+          </MenuItem>
+
+          <Divider />
+
+          <MenuItem>
+            <button onClick={handleLogout} className='d-flex align-items-center' style={{ border: "none", backgroundColor: "transparent" }}>
+              <ListItemIcon>
+                <Logout fontSize="small" />
+              </ListItemIcon>
+              Logout</button>
+          </MenuItem>
+        </Menu>
         {/* <Avatar alt="Remy Sharp"src="https://nettv4u.com/imagine/23-10-2019/hrithik-roshan.jpg" /> */}
       </section>
       {/* <MenuIcon class="togglemenu"/> */}
-      {expand==true?<CloseIcon id="togglemenu" onClick={toogle}/>
-      :<MenuIcon id="togglemenu"  onClick={toogle}/>}
+      {expand == true ? <CloseIcon id="togglemenu" onClick={toogle} />
+        : <MenuIcon id="togglemenu" onClick={toogle} />}
     </nav>
   )
 }

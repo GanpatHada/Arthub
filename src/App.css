@@ -1,28 +1,34 @@
 
+@import url('https://fonts.googleapis.com/css2?family=El+Messiri&family=Josefin+Sans:wght@200&family=Lobster&family=Roboto&family=Zen+Loop&display=swap');
+
 .margin50{
   padding-top: 50px;
-}
-p{
-  margin-bottom: 0px!important;
 }
 .ty{
   font-weight:bolder;
   font-size: 0.95rem;
 }
-.form-control:focus{
-  outline: none!important;
-  border: 1px solid grey!important;
+.mybtn{
+  background-color: var(--maincolor)!important;
   box-shadow: none!important;
+}
+.mybtn:hover{
+  background-color: var(--mainhover)!important;
 }
 a{
   text-decoration: none;
 }
+.form-control{
+  border-color: rgba(43, 43, 43, 0.288);
+ 
+}
+.form-control:focus{
+  border: 1.5px solid var(--maincolor);
+}
 .navbar{
   z-index: 6!important;
 }
-.sellitem{
-  box-shadow: -5px 5px 7px -1px #2c68836e;
-}
+
 /* //for hr inside buyrequest.js */
 .ucontainer > hr{
   margin: 0px;
@@ -58,9 +64,7 @@ a{
   padding-bottom: 0px;
   padding: 10px;
 }
-#card{
-  /* box-shadow:  -5px 6px 10px 0px #2c6783; */
-}
+
 .productcard{
   box-shadow:  -5px 6px 10px 0px #2c6783;
 }
@@ -86,45 +90,34 @@ a{
 .card_input{
   border-color: #2c688336;
 }
-.card_input:focus{
-  border: 2px solid #2c688369!important;
-}
+
 #noitem{
   margin: 70px;
   height: 200px;
   display: block;
   margin: 0px auto;
 }
-#uploadheading{
-  width: 100%;
-  height: 10%;
-  background-color: rgb(255, 255, 255);
-  border-top-left-radius: 8px;
-  border-top-right-radius: 8px;
-  border-bottom: 1px solid rgb(214, 214, 214);
+
+
+#pd{
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: large;
 }
+
 
 #maincontainer{
   display: flex;
   flex-direction: column;
   width: 100%;
   height: 85%;
-  background: rgb(255, 255, 255);
+  background-color: var(--boxbgcolor);
   padding: 10px;
-  border: 1px solid rgb(255, 255, 255);
-  border-top: 0px;
  
-  border-radius: 8px;
-  border-top-left-radius: 0px;
-  border-top-right-radius: 0px;
-  
-  
 }
 #lcontainer{
   width: 80%;
   margin: 0px auto;
   height: 100%;
-  background-color: pink;
   display: flex;
   flex-direction: column;
   height:300px;
@@ -132,7 +125,6 @@ a{
 #rcontainer{
   width: 100%;
   height: 100%;
-  background-color: rgb(255, 255, 255);
   
 }
 .uploadimage{
@@ -164,52 +156,18 @@ input[type="file"]
   object-fit: cover;
   border-radius: 50%;
 }
-@media(max-width:780px)
-{
-  .navcol{
-     justify-content: left!important;
-  }
-  #maincontainer{
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    background: rgb(250, 251, 252);
-    margin: 0px auto;
-    padding: 20px;
-  }
-  #lcontainer{
-    width: 100%;
-    background-color: rgb(250, 250, 250);
-    display: flex;
-    flex-direction: column;
-  }
-  #rcontainer{
-    width: 100%;
-    background-color: rgb(255, 255, 255);
 
-  }
-
-  .uploadimage{
-    height: 250px;
-    max-height: 100%;
-  }
-  .outercontainer{
-    width: 95%;
-    margin-top: 30px;
-    height: fit-content;
-    padding-bottom: 10px;
-  }
-  #uploadheading{
-    width: 100%;
-    height: 10%;
-    background-color: rgb(255, 255, 255);
-  }
-  
-
-  }
   @media(max-width:576px){
     #content_Card{
       height: 45vw;
+      
+    }
+    
+    #maincontainer{
+      padding: 0px;
+    }
+    #lcontainer,.uploadimage{
+      height: 150px;
     }
   }
   
