@@ -25,7 +25,7 @@ import LocalMallIcon from '@mui/icons-material/LocalMall';
 import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 // ------------------------------------
 const Navbar2 = () => {
-  const navigate=useNavigate();
+  const navigate = useNavigate();
   const [expand, setexpand] = useState(false);
   const [height, setheight] = useState("60px");
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -46,11 +46,12 @@ const Navbar2 = () => {
       setheight("60px");
     }
   }
-  const handleLogout=()=>{
-    if(window.confirm("Do you really want to Logout"))
-        {localStorage.clear();
-          navigate("/welcome");}
-    
+  const handleLogout = () => {
+    if (window.confirm("Do you really want to Logout")) {
+      localStorage.clear();
+      navigate("/welcome");
+    }
+
   }
   return (
     <nav style={{ height: height }} id="mainnavbar">
@@ -123,18 +124,28 @@ const Navbar2 = () => {
           <MenuItem>
             <Avatar /> Profile
           </MenuItem>
-          <MenuItem>
+          {localStorage.getItem('role') === "buyer" ? <MenuItem>
+
+            <NavLink className='d-flex align-items-center' style={{ color: "#000000DE" }} to="/wishlist"> <ListItemIcon>
+              <ShoppingCartIcon fontSize="small" />
+            </ListItemIcon>My Wishlist</NavLink>
+          </MenuItem> : <MenuItem>
 
             <NavLink className='d-flex align-items-center' style={{ color: "#000000DE" }} to="/uploaditems"> <ListItemIcon>
               <CloudUploadIcon fontSize="small" />
             </ListItemIcon>Upload art</NavLink>
-          </MenuItem>
-          <MenuItem>
+          </MenuItem>}
+          {localStorage.getItem('role') === "buyer" ? <MenuItem>
 
             <NavLink className='d-flex align-items-center' style={{ color: "#000000DE" }} to="/mystore"><ListItemIcon>
               < LocalMallIcon fontSize="small" />
             </ListItemIcon>My store</NavLink>
-          </MenuItem>
+          </MenuItem> : <MenuItem>
+
+            <NavLink className='d-flex align-items-center' style={{ color: "#000000DE" }} to="/sellinghistory"><ListItemIcon>
+              < LocalMallIcon fontSize="small" />
+            </ListItemIcon>My store</NavLink>
+          </MenuItem>}
 
           <Divider />
 
