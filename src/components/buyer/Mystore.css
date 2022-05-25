@@ -1,0 +1,77 @@
+#mystore img{
+    background:radial-gradient(rgb(42,191,29),rgb(6,6,6));
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+}
+
+#mystore .card{
+    height: auto;
+    font-family: 'El Messiri', sans-serif;
+}
+#mystoreimage{
+    height: 16vw;
+}
+#mystore .header{
+    margin-top: 80px;
+    font-family: 'El-messeri';
+    color: transparent;
+    background:linear-gradient(black,rgb(36, 218, 36));
+    -webkit-background-clip: text;
+}
+#downloadbtn{
+    height: 3vw;
+    font-size: 1vw;
+    background-color:var(--maincolor);
+}
+#invoicebtn{
+    height: 3vw;
+    font-size: 1vw;
+    background-color:black;
+    margin-left: 5px;
+}
+#downloadicon{
+    font-size: 2vw;
+}
+#downloadbtn:hover{
+    background-color: var(--mainhover) !important;
+}
+#downloadsection{
+    display: flex;
+}
+@media (min-width:577px)
+{
+    #mystore{
+        font-size: 1.5vw;
+        
+    }
+}
+@media (max-width:576px)
+{
+    
+    #downloadbtn{
+        height: 38px;
+        font-size: 14px;
+        width: 95%;
+        
+    }
+    #invoicebtn{
+        height: 38px;
+        font-size: 14px;
+        width: 95%;
+        margin-left: 0px;
+        margin-top: 5px;
+        
+    }
+    #mystoreimage{
+        height: 200px;
+    }
+    #downloadicon{
+        font-size: 20px;
+    }
+    #downloadsection{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+}

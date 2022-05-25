@@ -55,7 +55,7 @@ const Navbar2 = () => {
   }
   return (
     <nav style={{ height: height }} id="mainnavbar">
-      <section style={{ width: "130px" }}>
+      <section>
         <img id="logo" src={logo} alt="..." />
       </section>
       <section id="middle">
@@ -73,7 +73,7 @@ const Navbar2 = () => {
           </Badge>
         </Tooltip>
         <Box sx={{ display: 'flex', alignItems: 'center', textAlign: 'center' }}>
-          <Tooltip title="Seller Account">
+          <Tooltip title={`${localStorage.getItem('role')} Account`}>
             <IconButton
               onClick={handleClick}
               size="small"
@@ -82,7 +82,7 @@ const Navbar2 = () => {
               aria-haspopup="true"
               aria-expanded={open ? 'true' : undefined}
             >
-              <Avatar sx={{ width: 32, height: 32 }} >S</Avatar>
+              <Avatar sx={{ width: 32, height: 32 }} >{localStorage.getItem('role')?localStorage.getItem('role').charAt(0).toUpperCase():""}</Avatar>
             </IconButton>
           </Tooltip>
         </Box>

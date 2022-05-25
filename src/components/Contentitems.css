@@ -1,10 +1,19 @@
+.card{
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    background-color: var(--boxbgcolor);
 
+}
 #bodysection{
     display: flex;
     flex-direction: column;
-    height: 15vw;
+    height: auto;
     justify-content: space-around;
     padding: 0px;
+}
+#imagesection > img{
+    width: 100%;
+    object-fit: contain;
+    background:radial-gradient(rgb(42,191,29),rgb(6,6,6));
 }
 .bidform{
     display: flex;
@@ -21,6 +30,7 @@
 #bidfooter p{
     color:black;
     cursor: pointer;
+    margin: 5px 0px;
 }
 #bidfooter p:hover{
     text-decoration: underline;
@@ -31,8 +41,9 @@
 }
 #pricesection{
     font-family: 'Lobster';
-    font-size: large;
     color: rgb(56, 56, 56);
+    margin: 5px 0px;
+    font-size: 20px;
 }
 #bid:focus{
     border: 1px solid #26E600;
@@ -59,12 +70,13 @@
 {
     .bidform{
         height: 30px;
-        width: 90%;
+        width: 100%;
         margin: auto;
-        justify-content: space-between;
+        justify-content: space-around;
+        padding: 0px 3px;
     }
     #bodysection{
-        height: 120px;
+        height: auto;
     }
     #bidfooter p{
         font-size: 0.8rem;
@@ -83,7 +95,7 @@
         margin: 0px auto;
     }
     #bodysection{
-        height: 170px;
+        height: auto;
     }
     .bidform{
         display: flex;
@@ -94,13 +106,16 @@
     #bid,#bidbtn{
         width: 100%;
     }
+    #bid{
+        height: 42px;
+    }
     #bidbtn{
         margin-top: 5px;
         margin-bottom: 10px;
-        height: 33px;
+        height: 42px;
     }
     #pricesection{
-        font-size: large;
+        margin: 10px 0px;
     }
     
     
@@ -115,8 +130,12 @@
         width: 95%;
         margin: 0px auto;
     }
+    #bid{
+        height: 38px;
+    }
     #bodysection{
-        height: 150px;
+        height: auto;
+        padding: 0px 0px;
     }
     .bidform{
         display: flex;
@@ -125,7 +144,11 @@
     }
     #bidbtn{
         margin-top: 5px;
-        margin-bottom: 10px;
-        height: 33px;
+        margin-bottom: 5px;
+        height: 38px;
+    }
+    #pricesection{
+        /* margin: 10px 0px; */
+        font-size: 16px;
     }
 }

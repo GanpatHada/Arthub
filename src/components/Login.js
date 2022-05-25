@@ -79,7 +79,6 @@ const Login = () => {
                     localStorage.setItem('name', json.name);
                     localStorage.setItem('role', json.role);
                     localStorage.setItem('id', json.id);
-                    alert(`Login successfull as ${json.role}`);
                     navigate("/");
                     
                     

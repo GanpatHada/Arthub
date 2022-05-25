@@ -6,7 +6,7 @@
     --maincolor:#26E600;
     --mainhover:#1ca101;
     --bgcolor:rgb(255, 255, 255); 
-    --boxbgcolor:rgba(243, 243, 243,0.7);
+    --boxbgcolor:rgba(243, 243, 243, 0.829);
     --boxbordercolor:rgb(241, 241, 241);
     
     
@@ -17,6 +17,9 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: var(--bgcolor);
+}
+a:hover{
+  color: var(--mainhover)!important;
 }
 
 code {

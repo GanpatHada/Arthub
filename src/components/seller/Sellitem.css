@@ -5,6 +5,28 @@
     background-color: #26E600;
 
 }
+#uploadform{
+    margin-top: 100px;
+}
+.form-select:focus{
+    box-shadow: none;
+    border-color: var(--maincolor);
+}
+.form-control , .form-select , #myfile{
+    font-family: 'El Messiri', sans-serif;
+    font-weight: bold;
+}
+#rcontainer i{
+    font-weight: bold;
+    font-style: normal;
+    font-family: 'El Messiri', sans-serif;
+}
+#pd{
+    /* font-family: 'Varela Round', sans-serif; */
+    font-size: 30px;
+    font-family: 'El Messiri', sans-serif;
+    font-weight: bold;
+}
 #sellcontainer{
     box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
     border-radius: 4px;
@@ -54,6 +76,13 @@
         width: 90%;
         margin: 0px auto;
         margin-top: 10px;
+    }
+    #pd{
+        font-size: 20px;
+        
+    }
+    #rcontainer img{
+        height: 30px;
     }
     
 }

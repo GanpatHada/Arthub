@@ -3,7 +3,7 @@
     min-height: 100vh;
     width: 100%;
     /* background: linear-gradient(145deg,rgba(0, 0, 0, 0.548),rgba(10, 202, 10, 0.288)),url('./icons/background.jpg'); */
-    background:url('./icons/background.jpg'),rgba(3, 19, 1, 0.842);
+    background:url('./icons/background.jpg'),rgba(3, 19, 1, 0.932);
     background-blend-mode: darken;
     background-size: cover;
     background-attachment: fixed;
@@ -33,8 +33,9 @@
     height: 40px;
     width: 100px;
     background-color: var(--maincolor);
-    border: 0.01px solid var(--maincolor);
-    color: white;
+    background-color: white;
+    border: 0.01px solid white;
+    color: rgb(0, 0, 0);
     transition: 0.2s ease-in-out;
     border-radius: 3px;
 }
@@ -80,19 +81,21 @@
     height: 45px;
     width: 250px;
     margin-left: 50px;
-    background: linear-gradient(180deg,rgb(146, 248, 146),green);
+    background: linear-gradient(45deg,green,var(--maincolor));
     transition: 0.5s;
     font-size: 16px;
-    color: #000000;
+    color: #ffffff;
     border: none;
     border-radius: 4px;
 }
+
 #loginbutton{
     height: 50px;
     width: 150px;
     margin-left: 10px;
-    background-color: black;
-    background: linear-gradient(180deg,rgb(146, 248, 146),green);
+    /* background-color: black;
+    background: linear-gradient(180deg,rgb(146, 248, 146),green); */
+    background-color: white;
     color: black;
     font-size: 16px;
     border-radius: 4px;

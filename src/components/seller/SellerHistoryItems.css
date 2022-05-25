@@ -12,19 +12,8 @@
     margin: 10px 0px;
     padding: 0.5vw;
 }
-.shi .card-body p{
-    margin-bottom: 1vw;
-    font-size: 1.2vw;
-}
-.shi .card-text{
-    margin-top: 1vw;
-    padding: 0.5vw 0px;
-    font-size: 1.7vw;
-    border: 1px;
-    border-style: solid;
 
-}
-#downloadbtn{
+/* #downloadbtn{
     height: 3vw;
     font-size: 1vw;
     background-color:"#0eafed";
@@ -34,28 +23,8 @@
 }
 #downloadbtn:hover{
     background-color: #1895c7 !important;
-}
+} */
 
 @media (max-width:576px){
-    .shi .card{
-        height: 80vw;
-    }
-    #downloadbtn{
-        height: 6vw;
-        font-size: 3vw;
-    }
    
-    #downloadicon{
-        font-size: 3vw;
-    }
-    .shi .card-body p{
-        margin-bottom: 2vw;
-        font-size: 3vw;
-    }
-    .shi .card-text{
-        margin-top: 2vw;
-        padding: 1vw 0px;
-        font-size: 4vw;
-        padding-bottom: 1vw;
-    }
 }

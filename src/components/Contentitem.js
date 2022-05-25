@@ -22,11 +22,11 @@ const Contentitem = (props) => {
   }
   return (
     <div className="card mb-1 mt-4" id="contentcard" style={{ zIndex: "4" }}>
-      <section id="imagesection">
-        <img className="card-img-top " style={{ width: "100%", objectFit: "cover" }} src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjkvU5no5CEkH7t3n_m9tYcznMn7wqQgLH4A&usqp=CAU" alt="Card image cap" id="content_Card" />
+      <section id="imagesection" className="p-1">
+        <img className="card-img-top " src={props.value.image} alt="Card image cap" id="content_Card" />
       </section>
       <section id="bodysection" className="card-body" style={{ overflow: "hidden" }}>
-        <div id="pricesection"><p className="card-text text-center mt-1 py-1" style={{ whiteSpace: "nowrap" }}>
+        <div id="pricesection"><p className="card-text text-center" style={{ whiteSpace: "nowrap" }}>
           <strong>Bid : </strong>{props.value.bid} /-</p>
         </div>
         <div id="bidsection">

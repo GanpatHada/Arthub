@@ -9,7 +9,7 @@
     margin: 100px auto;
     position: relative;
     letter-spacing: 0.7px;
-    font-family:'calibri';
+    font-family:'El-messeri';
     border: 1px solid grey;
     line-height: 1rem;
 }
@@ -53,7 +53,7 @@
     background-color: var(--mainhover);
 }
 @media (max-width:576px){
-    #lblock,#rblock,header,footer,#productheading,p{
+    #lblock,#rblock,header,footer,#productheading,.paymentcontainer p{
         font-size: 0.8rem;
     }
     .paymentlogo > img{
@@ -80,7 +80,7 @@
         letter-spacing: normal;
         
     }
-    #lblock,#rblock,header,footer,#productheading,p{
+    #lblock,#rblock,header,footer,#productheading,.paymentcontainer p{
         font-size: 0.7rem;
     
     }

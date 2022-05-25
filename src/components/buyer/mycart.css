@@ -5,6 +5,7 @@
     
     
 }
+
 .content{
     display: flex;
     height: calc(100vh - 58px);
@@ -96,40 +97,58 @@
     color: rgb(88, 88, 88);
     
 }
-#trashlogo{
-    position: absolute;
-    right: 10px;
-    bottom: 10px;
-    height: 20px;
-    transition: all ease-in-out 0.1s;
-    z-index: 1;
-    cursor: pointer;
-}
+
 .paybtn{
    width: 100%;
 }
-#trashlogo:hover{
-    height: 25px;
-}
+
 .part1 img{
     height: 100%;
     width: 100%;
     object-fit: contain;
+    background:radial-gradient(rgb(42,191,29),rgb(6,6,6));
 }
 .part2 {
     width: 20%;
 }
 .buyitems{
-      max-height: 300px;
+      height: 260px;
       width: 100%;
-      background-color: rgb(255, 255, 255);
-      padding: 7px;
-      
+      background-color: var(--boxbgcolor);
+      border: 1px solid var(--boxbordercolor);
+      margin: 20px 0px;
+      border-radius: 0px;
+      box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+      font-family: 'El-messeri';
+      font-size: 16px;
       /* padding:"7px",
       border:"1px fade grey" */
 }
-
-@media (max-width:576px)
+#wishlistcontainer{
+    min-height: calc(100vh - 210px);
+    margin-top: 80px;
+}
+#wishlistcontainer .header{
+    font-family: 'El-messeri';
+    color: transparent;
+    background:linear-gradient(black,rgb(36, 218, 36));
+    -webkit-background-clip: text;
+}
+#details{
+    color:var(--maincolor);
+    cursor: pointer;
+}
+#details:hover{
+    color: var(--mainhover);
+}
+#paymentbtn{
+    background-color: var(--maincolor);
+    box-shadow: none!important;
+}
+#paymentbtn:hover{
+    background-color: var(--mainhover);
+}
+@media (max-width:576px) 
 {
     .content{
         height: min-content;
@@ -168,7 +187,7 @@
     }
     .part1{
         width: 100%!important;
-        height: 50vw;
+        height: 60vw;
         
        
     }
@@ -183,7 +202,18 @@
         flex-direction: column;
         max-height: fit-content;
         overflow: hidden;
+        height: auto;
+       
 
     }
    
+}
+@media (max-width:356px)
+{
+    #paymentbtn{
+        height: 38px;
+    }
+    .buyitems{
+        font-size: 14px;
+    }
 }

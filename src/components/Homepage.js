@@ -43,6 +43,7 @@ const Homepage = () => {
       <Route exact path="/bidhistory" element={<BidHistory/>}/>        
       <Route exact path="/Welcome" element={<Welcome/>}/>
       <Route exact path="/about" element={<Invoice/>}/>
+      <Route exact path="/invoice" element={<Invoice/>}/>
       <Route exact path="/accountdetails" element={<Accountdetails/>}/>
       <Route exact path="/uploaditems" element={<Sellitem/>}/>
       <Route exact path="/sellinghistory" element={<Sellinghistory/>}/>

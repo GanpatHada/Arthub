@@ -1,5 +1,6 @@
 #searchbox{
     height: 300px;
+    height: 0px;
     width: 100%;
     top: 60px;
     background:rgba(0, 0, 0, 0.8) url('../icons/b1.jpg');
@@ -8,6 +9,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
 }
 #searchselect{
     width: 480px;
@@ -44,6 +46,7 @@
 
 #searchbox{
     height: 140px;
+    height: 0px;
 }
 #searchicon{
     font-size: 16px;

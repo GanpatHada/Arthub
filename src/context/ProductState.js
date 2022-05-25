@@ -13,6 +13,7 @@ const ProductState = (props) => {
     const [details, setdetails] = useState([])
     const [bidhistory, setbidhistory] = useState([])
     const [paymentdetails, setpaymentdetails] = useState({})
+    const [invoicedetails, setinvoicedetails] = useState({})
 
     //api request for fetching requeste product to sell
     const fetch_seller_unsoldproduct = async () => {
@@ -131,7 +132,6 @@ const ProductState = (props) => {
 
         const json = await response.json();
         setloading(false)
-        console.log(json.wishlist)
         setwishlist(json.wishlist)
     }
     catch(error)
@@ -151,8 +151,6 @@ const ProductState = (props) => {
                 'Content-type': "application/json",
                 'auth-token': localStorage.getItem('token')
             },
-
-
         });
 
         const json = await response.json();
@@ -196,12 +194,41 @@ const ProductState = (props) => {
             navigate("/servererror")
         }
     }
+    const handlepaymentdetails=async()=>{
+        try {
+            setloading(true)
+            const response = await fetch(`http://localhost:8000/api/payment/makepayment/${paymentdetails.productid}/${paymentdetails.orderid}/${paymentdetails.paymentid}`, {
+                method: 'GET',
+                headers: {
+                    'Content-type': "application/json",
+
+                },
+                
+            });
+
+            const json = await response.json();
+            setloading(false)
+            if(json.success)
+                {setinvoicedetails(json.payment);
+                navigate("/invoice");}
+            else
+            {
+                console.log(json.message)
+                navigate("/servererrror");
+            }    
+        } catch (error) {
+            console.log(error)
+            navigate("/servererror")
+        }
+        
+    }
     const fetch_productlist = async () => {
         try {
             setloading(true)
             const response = await fetch("http://localhost:8000/api/product/fetchallproducts", {
                 method: 'GET',
                 headers: {
+                    'Access-Control-Allow-Origin':'*',
                     'Content-type': "application/json",
 
                 },
@@ -220,7 +247,6 @@ const ProductState = (props) => {
 
     const createBid = async (productid, bid) => {
         try{
-        setloading(true)
         const response = await fetch(`http://localhost:8000/api/user/bid/${productid}/${bid}`, {
             method: 'PUT',
             headers: {
@@ -234,10 +260,19 @@ const ProductState = (props) => {
 
         const json = await response.json();
         if (!json.success)
-            return alert("Warning : Bid should be more than privious bid")
-        alert("success:product has been added to wishlist");
-        setloading(false)
-        console.log(json)
+            return alert(" Warning : Bid should be more than privious bid ")
+        let updatedproduct=JSON.parse(JSON.stringify(productlist))
+        for(let index=0;index<updatedproduct.length;index++)
+        {
+            const element=updatedproduct[index];
+            if(element._id===productid)
+            {
+                updatedproduct[index].bid=bid;
+                break;
+            }
+            
+        }
+        setproductlist(updatedproduct);
     }catch(error)
     {
         console.log(error);
@@ -250,7 +285,8 @@ const ProductState = (props) => {
         <ProductContext.Provider value={{
             unsoldproduct, wishlist, mystore, loading,
             fetch_seller_unsoldproduct, sellproduct, soldproduct, fetch_seller_soldproduct, fetch_user_Wishlist, fetch_user_myStore,
-            productlist, fetch_productlist, createBid,sendAlert,details,handleDetails,bidhistory,showBidHistory,paymentdetails,setpaymentdetails
+            productlist, fetch_productlist, createBid,sendAlert,details,handleDetails,bidhistory,showBidHistory,paymentdetails,setpaymentdetails,
+            handlepaymentdetails,invoicedetails
         }}>
             {props.children}
         </ProductContext.Provider>

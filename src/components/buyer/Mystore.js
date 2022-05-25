@@ -6,16 +6,18 @@ const Mystore = () => {
   const context = useContext(ProductContext);
   const { mystore, fetch_user_myStore} = context;
   useEffect(() => {
+    document.getElementById("searchbox").style.display="none";
+    document.getElementById("mainart").style.display="none";
     fetch_user_myStore();
   }, [])
   return (
-    <div className="shi">
-      
+    <div className="shi" id="mystore">
+      <div className="header py-2 px-2 d-flex justify-content-center align-items-center" >
+            <h2><strong>My Store</strong></h2>
+      </div>
       <div className="container-fluid" >
         <div className="ucontainer">
-          <div className="header py-2 px-2 d-flex align-items-center">
-            <h4><strong>My Store</strong></h4>
-          </div><hr />
+          
           <div className="row px-2 pb-4">
             {
               mystore.map((newmystore) => {

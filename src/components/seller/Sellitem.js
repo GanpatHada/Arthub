@@ -2,6 +2,7 @@ import React from 'react'
 import { useEffect, } from 'react'
 import { storage } from '../Firebase'
 import logo from '../icons/no_image.jpg'
+import nlogo from '../icons/newlogo.png'
 import { useState } from 'react'
 import Spinner from '../Spinner'
 import { useNavigate } from 'react-router-dom'
@@ -80,16 +81,14 @@ const Sellitem = () => {
     }
     return (
         <div className="container my-4 d-flex-column ">
-            <div id="uploadheading" className='p-3 sellitem'>
-                <h4><strong >Upload your ArtWork</strong></h4>
-            </div>
-            <form onSubmit={handleSubmit}>
+            <form id="uploadform" onSubmit={handleSubmit}>
                 <div id="sellcontainer" className='sellitem'>
 
                     <div id="rcontainer">
-                        <div style={{ textAlign: "center" }} className="mt-4 mb-3">
+                        <div className="mt-4 mb-3 px-3 d-flex justify-content-between">
                             <h3 id="pd"> Product details</h3>
-                        </div>
+                            <img src={nlogo} alt="" height="50px" />
+                        </div><hr />
                         <div className='p-3'>
 
 
@@ -97,7 +96,7 @@ const Sellitem = () => {
 
                                 <input
                                     type="text"
-                                    className=" form-control form-control-sm"
+                                    className=" form-control form-control"
                                     id="title"
                                     placeholder='Enter title'
                                     maxLength="20"
@@ -108,7 +107,7 @@ const Sellitem = () => {
                             <div className="mb-3">
 
                                 <textarea
-                                    className=" form-control form-control-sm"
+                                    className=" form-control form-control"
                                     id="description"
                                     placeholder='Enter short description'
                                     rows="4"
@@ -118,7 +117,7 @@ const Sellitem = () => {
                             </div>
                             <div className="mb-3">
 
-                                <select className="form-select form-select-sm" aria-label="Default select example" id="category">
+                                <select className="form-select form-select" aria-label="Default select example" id="category">
                                     <option autoselected="true" value="0">Digital painting</option>
                                     <option value="1">Oil painting</option>
                                     <option value="2">Acrylic painting</option>
@@ -130,9 +129,9 @@ const Sellitem = () => {
                             <div className="mb-2">
 
                                 <input type="number"
-                                    className="form-control form-control-sm"
+                                    className="form-control form-control"
                                     id="pprice"
-                                    placeholder='Enter ammount'
+                                    placeholder='Enter amount'
                                     required
                                     onChange={(e) => { setword(wordConverter(e.target.value)) }} />
                             </div>
