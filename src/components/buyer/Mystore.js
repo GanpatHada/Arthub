@@ -4,7 +4,7 @@ import Mystoreitems from './Mystoreitems';
 import '../seller/SellerHistoryItems.css'
 const Mystore = () => {
   const context = useContext(ProductContext);
-  const { mystore, fetch_user_myStore} = context;
+  const { mystore, fetch_user_myStore,handleDetails} = context;
   useEffect(() => {
     document.getElementById("searchbox").style.display="none";
     document.getElementById("mainart").style.display="none";
@@ -23,7 +23,7 @@ const Mystore = () => {
               mystore.map((newmystore) => {
                 return (
                   <div className="col-sm-4" key={newmystore._id}>
-                    <Mystoreitems value={newmystore} />
+                    <Mystoreitems value={newmystore} handleDetails={handleDetails} />
                   </div>
                 )
               })}

@@ -5,8 +5,16 @@
     background-color: #26E600;
 
 }
-#uploadform{
-    margin-top: 100px;
+#sellitemheader{
+    margin-top: 80px;
+    margin-bottom: 20px;
+    font-family: 'El-messeri';
+    
+}
+#sellitemheader h2{
+    background: linear-gradient(black,green);
+    -webkit-background-clip: text;
+    color: transparent;
 }
 .form-select:focus{
     box-shadow: none;

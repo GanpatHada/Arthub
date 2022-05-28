@@ -13,8 +13,8 @@ import './Sellitem.css'
 
 const Sellitem = () => {
     useEffect(() => {
-        document.getElementById("searchbox").style.display="none";
-        document.getElementById("mainart").style.display="none";
+        document.getElementById("searchbox").style.display = "none";
+        document.getElementById("mainart").style.display = "none";
     }, [])
     let navigate = useNavigate();
     const [word, setword] = useState("zero rupee")
@@ -80,7 +80,10 @@ const Sellitem = () => {
         }
     }
     return (
-        <div className="container my-4 d-flex-column ">
+        <div className="container mb-4 d-flex-column ">
+            <div className=" d-flex justify-content-center align-items-center" id="sellitemheader" >
+                <h2><strong>Sell ArtWork</strong></h2>
+            </div>
             <form id="uploadform" onSubmit={handleSubmit}>
                 <div id="sellcontainer" className='sellitem'>
 
@@ -101,7 +104,7 @@ const Sellitem = () => {
                                     placeholder='Enter title'
                                     maxLength="20"
                                     required />
-                               
+
 
                             </div>
                             <div className="mb-3">

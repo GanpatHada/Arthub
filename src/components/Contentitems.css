@@ -43,7 +43,8 @@
     font-family: 'Lobster';
     color: rgb(56, 56, 56);
     margin: 5px 0px;
-    font-size: 20px;
+    margin-bottom: 10px;
+    font-size: 18px;
 }
 #bid:focus{
     border: 1px solid #26E600;
@@ -86,6 +87,9 @@
     }
     #bodysection #bid::placeholder{
         font-size: 0.8rem;
+    }
+    #pricesection{
+        font-size: 14px;
     }
 }
 @media (max-width:576px) and (min-width:447px)

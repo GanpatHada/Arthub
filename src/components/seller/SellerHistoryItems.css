@@ -12,7 +12,10 @@
     margin: 10px 0px;
     padding: 0.5vw;
 }
-
+.shi .card 
+#shimagediv{
+    background: radial-gradient(green,black);
+}
 /* #downloadbtn{
     height: 3vw;
     font-size: 1vw;
@@ -25,6 +28,35 @@
     background-color: #1895c7 !important;
 } */
 
-@media (max-width:576px){
-   
+@media (max-width:1000px){
+   #shbody{
+       font-size: 0.9rem;
+   }
+}
+@media (max-width:878px){
+   #shbody{
+       font-size: 0.8rem;
+   }
+}
+@media (max-width:792px){
+   #shbody{
+       font-size: 0.7rem;
+   }
+}
+@media (max-width:710px){
+   #shbody{
+       font-size: 0.5rem;
+   }
+}
+@media (max-width:575px){
+   .shi .card{
+       height: 400px;
+   }
+   .shi .container-fluid{
+    padding: 5px;
+ }
+ #shbody{
+    font-size: 0.9rem;
+    padding-left: 10px;
+}
 }

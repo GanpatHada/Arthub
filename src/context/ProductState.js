@@ -13,6 +13,7 @@ const ProductState = (props) => {
     const [details, setdetails] = useState([])
     const [bidhistory, setbidhistory] = useState([])
     const [paymentdetails, setpaymentdetails] = useState({})
+    const [paymentfaileddetails, setpaymentfaileddetails] = useState({})
     const [invoicedetails, setinvoicedetails] = useState({})
 
     //api request for fetching requeste product to sell
@@ -29,6 +30,7 @@ const ProductState = (props) => {
         });
          
         const json = await response.json();
+        console.table(json);
         setloading(false)
         setunsoldproduct(json);
     }
@@ -71,10 +73,10 @@ const ProductState = (props) => {
     }
 
     //seller sold product api
-    const sellproduct = async (product_id) => {
+    const approveproduct = async (product_id) => {
         try{
         setloading(true)
-        const response = await fetch(`http://localhost:8000/api/seller/updatestatus/${product_id}`, {
+        const response = await fetch(`http://localhost:8000/api/seller/updateapprove/${product_id}`, {
             method: 'PATCH',
             headers: {
                 'Content-type': "application/json",
@@ -84,8 +86,7 @@ const ProductState = (props) => {
         });
         const json = await response.json();
         setloading(false)
-        if (json.success)
-            alert("sold succssfully");
+        if (json.success);
         else
             console.log(json.message);
     }catch(error)
@@ -94,26 +95,7 @@ const ProductState = (props) => {
         navigate("servererror");
     }
 }
-    const sendAlert=async(product_id)=>{
-        setloading(true)
-        const response = await fetch(`http://localhost:8000/api/seller/sendAlert/${product_id}`, {
-            method: 'GET',
-            headers: {
-                'Content-type': "application/json",
-                'auth-token': localStorage.getItem('token')
-            },
-
-        });
-        const json = await response.json();
-        setloading(false)
-        if (json.success)
-        {
-             //to do here
-        }
-        else
-            console.log(json.message);
-             
-    }
+    
 
     //----------------------------------------------buyer functions----------------------------------------//
 
@@ -166,14 +148,11 @@ const ProductState = (props) => {
     //--------------------------------------------productlist--------------------------------------------------------------------//
     const showBidHistory=async(productid)=>{
         try {
-            setloading(true)
             const response=await fetch(`http://localhost:8000/api/product/bidhistory/${productid}`,{
                 method:"GET"
             });
             const json=await response.json();
-            setloading(false);
             setbidhistory(json.reverse());
-            navigate("/bidhistory");
         } catch (error) {
             console.log(error)
             navigate("/servererror")
@@ -221,6 +200,10 @@ const ProductState = (props) => {
             navigate("/servererror")
         }
         
+    }
+    const handlepaymentfaileddetails=()=>{
+        console.table(paymentfaileddetails)
+        navigate('/paymentfailed')
     }
     const fetch_productlist = async () => {
         try {
@@ -284,9 +267,9 @@ const ProductState = (props) => {
     return (
         <ProductContext.Provider value={{
             unsoldproduct, wishlist, mystore, loading,
-            fetch_seller_unsoldproduct, sellproduct, soldproduct, fetch_seller_soldproduct, fetch_user_Wishlist, fetch_user_myStore,
-            productlist, fetch_productlist, createBid,sendAlert,details,handleDetails,bidhistory,showBidHistory,paymentdetails,setpaymentdetails,
-            handlepaymentdetails,invoicedetails
+            fetch_seller_unsoldproduct, approveproduct, soldproduct, fetch_seller_soldproduct, fetch_user_Wishlist, fetch_user_myStore,
+            productlist, fetch_productlist, createBid,details,handleDetails,bidhistory,showBidHistory,paymentdetails,setpaymentdetails,
+            handlepaymentdetails,invoicedetails,setpaymentfaileddetails,handlepaymentfaileddetails,paymentfaileddetails
         }}>
             {props.children}
         </ProductContext.Provider>

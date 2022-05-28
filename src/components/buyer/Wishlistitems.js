@@ -1,9 +1,10 @@
 import { useContext, useState } from 'react';
 import ProductContext from '../../context/Productcontex';
 import Button from '@mui/material/Button';
+import { useNavigate } from 'react-router-dom';
 const Wishlistitems = (props) => {
     const context = useContext(ProductContext);
-    const {setpaymentdetails,handledetails,handlepaymentdetails}=context;
+    const {setpaymentdetails,handleDetails,handlepaymentdetails,setpaymentfaileddetails,handlepaymentfaileddetails}=context;
       const handlePayment = async (productid) => {
         try {
             const response = await fetch(`http://localhost:8000/api/user/order/${props.value._id}`, {
@@ -64,13 +65,10 @@ const Wishlistitems = (props) => {
                 var rzp1 = new window.Razorpay(options);
                 rzp1.open();
                 rzp1.on('payment.failed', function (response) {
-                    alert(response.error.code);
-                    alert(response.error.description);
-                    alert(response.error.source);
-                    alert(response.error.step);
-                    alert(response.error.reason);
-                    alert(response.error.metadata.order_id);
-                    alert(response.error.metadata.payment_id);
+                    const{code,description,source,reason,metadata}=response.error;
+                    setpaymentfaileddetails({code,description,source,reason,metadata});
+                    handlepaymentfaileddetails();
+                    
                 });
             }
             else {
@@ -95,10 +93,10 @@ const Wishlistitems = (props) => {
                     {/* <p className="mb-2 text-start"><strong>Category : </strong>{props.value.category}</p> */}
                     <p className="mb-2 text-start" ><strong>Base price : </strong>{props.value.price}</p>
                     <p className="mb-2 text-start"><strong>Bid : </strong>{props.value.bid}</p>
-                    <p className="mb-2 text-start py-1 text-center" style={{ border: "1px solid rgba(0,0,0,.323)" }}><strong>status : </strong><span>{(props.value.purchasedby === localStorage.getItem('id')) ? <span style={{ color: "green" }}>Request send</span> : <span style={{ color: "red" }}>bid increased</span>}</span></p>
-                    <Button type="button" id="paymentbtn" variant="contained" onClick={()=>{handlePayment(props.value._id)}} style={{ width: "100%" }}>Make Payment</Button>
+                    <p className="mb-2 text-start py-1 text-center" style={{ border: "1px solid rgba(0,0,0,.323)" }}><strong>status : </strong><span>{props.value.approved&&props.value.purchasedby===localStorage.getItem('id')?<span style={{ color: "blue" }}>Request approved</span>:(props.value.purchasedby === localStorage.getItem('id')) ? <span style={{ color: "green" }}>Request send</span> : <span style={{ color: "red" }}>bid increased</span>}</span></p>
+                    <Button type="button" id="paymentbtn" variant="contained" onClick={()=>{handlePayment(props.value._id)}} style={{display:props.value.approved&&props.value.purchasedby===localStorage.getItem('id')?"block":"none",width:"100%"}}>Make Payment</Button>
                     <div className='d-flex justify-content-start mt-2'>
-                        <span id="details" onClick={() => { handledetails(props.value._id) }}><strong>Product Details</strong></span>
+                        <span id="details" onClick={() => { handleDetails(props.value._id) }}><strong>Product Details</strong></span>
                     </div>
                 </div>
             </div>

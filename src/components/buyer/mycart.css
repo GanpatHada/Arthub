@@ -5,34 +5,16 @@
     
     
 }
-
+/* 
 .content{
     display: flex;
     height: calc(100vh - 58px);
     width: 100vw; 
     overflow: hidden;
     background-color:  rgb(230, 249, 255);
-}
+} */
 
-.lbox{
-    width: 70%;
-    flex-direction: column;
-    padding: 15px;
-    overflow: auto;
-    order: 1;
-}
-.lbox::-webkit-scrollbar{
-    display: none;
-}
-.rbox{
-    width: 30%;
-    background-color:  rgb(230, 249, 255);
-    display: flex;
-    flex-direction: column;
-    order: 2;
-    padding: 15px;
 
-}
 
 .items{
    background-color: lightcyan;
@@ -124,11 +106,11 @@
       /* padding:"7px",
       border:"1px fade grey" */
 }
-#wishlistcontainer{
+#wishlistcontainer,#buyrequestcontainer{
     min-height: calc(100vh - 210px);
     margin-top: 80px;
 }
-#wishlistcontainer .header{
+#wishlistcontainer .header,#buyrequestcontainer .header{
     font-family: 'El-messeri';
     color: transparent;
     background:linear-gradient(black,rgb(36, 218, 36));

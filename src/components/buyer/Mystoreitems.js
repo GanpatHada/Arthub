@@ -2,6 +2,8 @@ import React from 'react'
 import Button from '@mui/material/Button';
 import DownloadIcon from '@mui/icons-material/Download';
 import './Mystore.css';
+import {saveAs} from 'file-saver'
+
 const Mystoreitems = (props) => {
   const { _id, image, title, price, sellerid, bid } = props.value;
   const handleDownload = (e) => {
@@ -15,7 +17,7 @@ const Mystoreitems = (props) => {
           const url = window.URL.createObjectURL(new Blob([buffer]));
           const link = document.createElement("a");
           link.href = url;
-          link.setAttribute("download", "image.jpg"); //or any other extension
+          link.setAttribute("download", "image.png"); //or any other extension
           document.body.appendChild(link);
           link.click();
         });
@@ -28,7 +30,7 @@ const Mystoreitems = (props) => {
     <div className="shi" id="mystore">
       <div className="card d-flex-column pb-4">
         <div id="mystoreimage" className="p-1">
-          <img className="card-img-top" src={image} alt="Card image cap" />
+         <a href={image} download > <img className="card-img-top" src={image} alt="Card image cap" /></a>
         </div>
         <div className="card-body mt-1 p-0">
 
@@ -42,14 +44,14 @@ const Mystoreitems = (props) => {
                 <span className=''><strong> Base price : </strong>{price} rs.</span>
               </div>
               <div className="me-2">
-                <a href="">see details</a>
+                <a style={{cursor:"pointer"}} onClick={()=>{props.handleDetails(_id)}}>see details</a>
               </div>
             </div>
             <div id="downloadsection" className="mt-3">
-              <a href={image} onClick={(e) => { handleDownload(e) }} ><Button variant="contained" id="downloadbtn" endIcon={<DownloadIcon id="downloadicon" />} >
+              <a href={image} download onClick={(e)=>{handleDownload(e)}}><Button variant="contained" id="downloadbtn" endIcon={<DownloadIcon id="downloadicon" />} >
                 Download
               </Button></a>
-              <Button variant="contained" id="invoicebtn" endIcon={<DownloadIcon id="downloadicon" />} >
+              <Button variant="contained"  id="invoicebtn" endIcon={<DownloadIcon id="downloadicon" />} >
                 Invoice
               </Button>
             </div>

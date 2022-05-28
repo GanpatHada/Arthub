@@ -1,24 +1,33 @@
 import React from 'react'
 import './SellerHistoryItems.css'
 const SellerHistoryItems = (props) => {
-    const{image,title,price,purchasedby,bid}=props.value;
+    const{image,title,price,purchasedby,bid,_id}=props.value;
     return (
-        <div className="shi">
-        <div className="card d-flex-column">
-            <div className="bg-light p-1" style={{width:"100%",height:"50%"}}>
-                <img className="card-img-top" style={{ width: "100%", height: "100%", objectFit: "contain" }} src={image} alt="Card image cap" />
-            </div>
-            <div className="card-body p-0" style={{height:"50%",fontSize:"1vw"}}>
-                <h6 className="card-text text-center" style={{borderColor:"rgba(0,0,0,.125)"}}><b>{bid}/-</b></h6>
-                <div className="d-flex-column ">
-                    <p className=''><strong> Title : </strong>{title}</p>
-                    <p className=''><strong>Original Price : </strong>{price}/-</p>
-                    <p className=''><strong>Sold To : </strong>{purchasedby}</p>
-                   
+        <div className="shi" id="mystore">
+        <div className="card d-flex-column pb-4">
+          <div id="mystoreimage" className="p-1">
+            <img className="card-img-top" src={image} alt="Card image cap" />
+          </div>
+          <div className="card-body mt-1 p-0">
+  
+  
+  
+            <div className="d-flex-column ps-2">
+              <div className="">
+                <div>
+                  <span className=''><strong> Title : </strong>{title}</span><br />
+                  <span className=''><strong> price : </strong>{bid} rs.</span><br />
+                  <span className=''><strong> Base price : </strong>{price} rs.</span>
                 </div>
+                <div className="me-2">
+                  <a style={{cursor:"pointer",color:"green"}}onClick={()=>{props.handleDetails(_id)}}>see details</a>
+                </div>
+              </div>
+              
             </div>
+          </div>
         </div>
-        </div>
+      </div>
         
     )
 }

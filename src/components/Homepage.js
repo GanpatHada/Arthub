@@ -28,6 +28,7 @@ import Navbar2 from './assets/Navbar2';
 import Footer from './assets/Footer';
 import Mainart from './assets/Mainart';
 import Searchbox from './assets/Searchbox';
+import Paymentfailad from './assets/Paymentfailad';
 const Homepage = () => {
   return (
     <>
@@ -54,6 +55,7 @@ const Homepage = () => {
       <Route exact path="/mystore" element={<Mystore/>}/>  
       <Route exact path="/mystoree" element={<Loading/>}/>  
       <Route exact path="/servererror" element={<InternalServerError/>}/>  
+      <Route exact path="/paymentfailed" element={<Paymentfailad/>}/>  
       <Route exact path="*" element={<PageNotFound/>} />
     </Routes>
     <Footer/>

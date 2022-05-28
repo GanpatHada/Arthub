@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import './navbar2.css'
 import logo from '../icons/newlogo.png'
-import { NavLink, useNavigate } from 'react-router-dom'
+import { NavLink,Link, useNavigate } from 'react-router-dom'
 import LightModeIcon from '@mui/icons-material/LightMode';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import Badge from '@mui/material/Badge';
@@ -126,26 +126,33 @@ const Navbar2 = () => {
           </MenuItem>
           {localStorage.getItem('role') === "buyer" ? <MenuItem>
 
-            <NavLink className='d-flex align-items-center' style={{ color: "#000000DE" }} to="/wishlist"> <ListItemIcon>
+            <Link className='d-flex align-items-center' style={{ color: "#000000DE" }} to="/wishlist"> <ListItemIcon>
               <ShoppingCartIcon fontSize="small" />
-            </ListItemIcon>My Wishlist</NavLink>
+            </ListItemIcon>My Wishlist</Link>
           </MenuItem> : <MenuItem>
 
-            <NavLink className='d-flex align-items-center' style={{ color: "#000000DE" }} to="/uploaditems"> <ListItemIcon>
+            <Link className='d-flex align-items-center' style={{ color: "#000000DE" }} to="/uploaditems"> <ListItemIcon>
               <CloudUploadIcon fontSize="small" />
-            </ListItemIcon>Upload art</NavLink>
+            </ListItemIcon>Upload art</Link>
+          </MenuItem>}
+          {localStorage.getItem('role')==="seller"&&<MenuItem>
+            <Link className='d-flex align-items-center' style={{ color: "#000000DE" }} to="/buyrequest"><ListItemIcon>
+              < LocalMallIcon fontSize="small" />
+            </ListItemIcon>Buy requests</Link>
           </MenuItem>}
           {localStorage.getItem('role') === "buyer" ? <MenuItem>
 
-            <NavLink className='d-flex align-items-center' style={{ color: "#000000DE" }} to="/mystore"><ListItemIcon>
+            <Link className='d-flex align-items-center' style={{ color: "#000000DE" }} to="/mystore"><ListItemIcon>
               < LocalMallIcon fontSize="small" />
-            </ListItemIcon>My store</NavLink>
+            </ListItemIcon>My store</Link>
           </MenuItem> : <MenuItem>
 
-            <NavLink className='d-flex align-items-center' style={{ color: "#000000DE" }} to="/sellinghistory"><ListItemIcon>
+            <Link className='d-flex align-items-center' style={{ color: "#000000DE" }} to="/sellinghistory"><ListItemIcon>
               < LocalMallIcon fontSize="small" />
-            </ListItemIcon>My store</NavLink>
+            </ListItemIcon>My store</Link>
           </MenuItem>}
+
+          
 
           <Divider />
 

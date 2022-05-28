@@ -5,25 +5,26 @@ import './SellerHistoryItems.css'
 import image from '../icons/noitem.png'
 const Sellinghistory = () => {
   const context = useContext(ProductContext);
-  const { soldproduct, fetch_seller_soldproduct} = context;
+  const { soldproduct, fetch_seller_soldproduct,handleDetails} = context;
   useEffect(() => {
+    document.getElementById("searchbox").style.display="none";
+    document.getElementById("mainart").style.display="none";
     fetch_seller_soldproduct();
   }, [])
   return (
-    <div className="shi">
-      
+    <div className="shi" id="mystore">
+      <div className="header py-2 px-2 d-flex justify-content-center align-items-center" >
+            <h2><strong>My Sellings</strong></h2>
+      </div>
       <div className="container-fluid" >
         <div className="ucontainer">
-          <div className="header py-2 px-2 d-flex align-items-center">
-            <h4><strong>Selling History</strong></h4>
-          </div><hr />
-         
-          <div className="row px-4 pb-4">
-            { (soldproduct.length===0)? <div className='d-flex justify-content-center'><img src={image} style={{position:"absolute"}} alt=".." id='noitem' /></div>:
+          
+          <div className="row px-2 pb-4">
+            {
               soldproduct.map((newsoldproduct) => {
                 return (
                   <div className="col-sm-4" key={newsoldproduct._id}>
-                    <SellerHistoryItems value={newsoldproduct} />
+                    <SellerHistoryItems value={newsoldproduct} handleDetails={handleDetails} />
                   </div>
                 )
               })}

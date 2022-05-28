@@ -147,6 +147,14 @@ input[type="file"]
   border: 1px solid #2c688336;
   padding: 5px;
 }
+.mybutton{
+  background-color: var(--maincolor)!important;
+  
+}
+.mybutton:hover{
+  background-color: var(--mainhover)!important;
+  
+}
 /* //navbar css */
 
 #profileimage{

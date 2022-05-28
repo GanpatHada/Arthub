@@ -1,0 +1,121 @@
+#pdcontainerheading
+{
+    margin-top: 80px;
+    margin-bottom: 20px;
+}
+#pdcontainerheading h2{
+    background:linear-gradient(black,rgb(36, 218, 36));
+    -webkit-background-clip: text;
+    color: transparent;
+}
+#pdcontainer{
+    height: auto;
+    width: 95%;
+    margin: auto;
+    background-color:var(--boxbgcolor);
+    margin-bottom: 20px;
+    
+}
+
+#pdimgdel
+{
+  display: flex;
+}
+#ficon{
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    filter: invert();
+    transition: 0.2s ease-in-out;
+}
+#fullimagecontent{
+    position: absolute;
+    top: 150px;
+    left: 0px;
+    width: 100%;
+    height: 100vh;
+    object-fit: contain;
+    z-index: 8;
+}
+#clicon{
+    position: fixed;
+    top: 80px;
+    right: 10px;
+    z-index: 8;
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+}
+#fullimage{
+    position: absolute;
+    top: 60px;
+    left: 0px;
+    width: 100%;
+    height: 1510px;
+    z-index: 6;
+    background-color: rgba(46, 46, 46, 0.863);
+}
+#ficon:hover{
+   font-size: 30px;   
+   cursor: pointer; 
+}
+#mainimage{
+    width: 50%;
+    height: 400px;
+    overflow: hidden;
+    background: radial-gradient(green,black);
+    flex-shrink: 1;
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+#pdcontainer > #mainimage img{
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+}
+#mainimage{
+    transition: 0.1s ease-in-out;
+}
+
+#detailssection{
+    flex-shrink: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 10px;
+    background-color: transparent;
+    font-family: 'El-messeri';
+    padding-left: 30px;
+    width: 50%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    height: 400px;
+    padding: 20px;
+}
+#detailssection > h3{
+    text-transform: capitalize;
+    color: var(--mainhover);
+    margin-bottom: 40px;
+    margin-top: 40px;
+}
+#sellerdetailsection,#bidderdetailsection{
+   
+    padding: 20px;
+}
+#bidhistoryheading{
+   
+    background-color: black;
+    color: white;
+    font-size: 25px;
+    padding: 10px;
+    margin-bottom: 5px;
+}
+#bidhistorysection{
+    height: 300px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    border: 1px solid grey;
+    border-radius: 2px;
+    padding: 10px;
+}

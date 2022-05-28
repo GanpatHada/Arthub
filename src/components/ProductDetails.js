@@ -1,47 +1,128 @@
-import React, { useEffect,useContext } from 'react'
+import React, { useEffect, useContext ,useState} from 'react'
 import ProductContext from '../context/Productcontex'
+import './ProductDetails.css'
+import FullscreenIcon from '@mui/icons-material/Fullscreen';
+import CloseIcon from '@mui/icons-material/Close';
 const ProductDetails = () => {
-  const context = useContext(ProductContext);
-  const{details}=context;
-  const{_id,title,description,price,sellerid,category,bid,purchasedby}=details;
-  return (
-    <div className="container bg-light mt-4 pt-4 sellitem mx-auto mb-3" style={{position:"relative",width:"95%",border:"1px solid #d3d0d0",borderRadius:"5px"}}>
-        <div className="detailsheading  d-flex align-content-center justify-content-center py-2">
-            <h4 style={{color:"#0eafed"}}><b className='my-auto text-center'>Product-Details</b></h4>
-        </div>
-        <div className="title mt-4">
-            <strong>title :</strong>  {title}
-        </div><hr />
-        <div className="id mt-4">
-            <strong>Product id. : </strong><span style={{color:"#0eafed"}}>{_id}</span>
-        </div>
-        <hr />
-        <div className="title">
-            <strong>Description : </strong>{description}
-        </div>
-        <hr />
-        <div className="title">
-            <strong>category : </strong>{category}
-        </div>
-        <hr />
-        <div className="title">
-            <strong>Original price : </strong>{price}
-        </div>
-        <hr />
-        <div className="title">
-            <strong>Seller id : </strong>{sellerid}
-        </div>
-        <hr />
-        <div className="Currentbid :">
-            <strong>Current bid : </strong>{bid}
-        </div>
-        <hr />
-        <div className="Bidby mb-4:">
-            <strong>Bid by : </strong>{purchasedby}
-        </div><hr style={{visibility:"hidden"}}/>
+    const [sellerdetails, setsellerdetails] = useState({})
+    const [buyerdetails, setbuyerdetails] = useState({})
+    const [count, setcount] = useState(0)
+    const context = useContext(ProductContext);
+    const { details,showBidHistory,bidhistory } = context;
+    const { _id, image, title, description, price, sellerid, category, bid, purchasedby } = details;
+    const handlefullscreen = ()=>{
+        document.getElementById("fullimage").style.display="block"
+        document.getElementById("fullimagecontent").style.display="block"
+        document.getElementById("clicon").style.display="block"
+    }
+    const handleclose = ()=>{
+        document.getElementById("fullimage").style.display="none"
+        document.getElementById("fullimagecontent").style.display="none"
+        document.getElementById("clicon").style.display="none"
+    }
+    const fetchsellerdetails=async(sellerid)=>{
+        try{
+        const response=await fetch(`http://localhost:8000/api/product/sellerdetails/${sellerid}`,{
+            method:"GET"
+        });
+        const json=await response.json();
+        if(json.success)
+            setsellerdetails(json.sellerdetails);     
+    } catch (error) {
+        console.log(error);
+    }
+    }
+    const fetchbuyerdetails=async(purchasedby)=>{
+        try{
+        const response=await fetch(`http://localhost:8000/api/product/buyerdetails/${purchasedby}`,{
+            method:"GET"
+        });
+        const json=await response.json();
+        if(json.success)
+           { setbuyerdetails(json.buyerdetails);   
+             console.table(buyerdetails)
+           }  
+    } catch (error) {
+        console.log(error);
+    }
+    }
+
+    
+    useEffect(() => {
+                 document.getElementById("searchbox").style.display = "none";
+                 document.getElementById("mainart").style.display = "none";
+                 fetchsellerdetails(sellerid);
+                 fetchbuyerdetails(purchasedby);
+                 showBidHistory(_id);
         
-    </div>
-  )
+    }, [])
+
+    return (
+        <>
+            <div id="fullimage" style={{display:"none"}}>
+                      <img src={image} alt="" id="fullimagecontent"  style={{display:"none"}} /> 
+                      <CloseIcon id="clicon" style={{display:"none"}} onClick={handleclose}/>
+
+                
+                  
+            </div>
+            <div id="pdcontainerheading">
+                <h2><center><b>ProductDetails</b> </center></h2>
+            </div>
+            <div id="pdcontainer">
+                <div id="pdimgdel">
+                    <div id="mainimage">
+                        <img src={image} alt="..." />
+                        <FullscreenIcon id="ficon" title="fullscreen" onClick={handlefullscreen} />
+                    </div>
+                    <div id="detailssection">
+                        <h3>{title}</h3>
+                        <p><strong>Product id : {_id}</strong></p>
+                        <p><strong>category : {category}</strong></p>
+                        <p><strong>Description : estias voluptates quia nihil?</strong></p>
+                        <p><strong>Current Bid : {bid}</strong></p>
+                        <p><strong>Original Price : {price}</strong></p>
+                    </div>
+                </div>
+                <div className="d-flex justify-content-between">
+                    <div id="sellerdetailsection">
+                        <h3 className='mb-3'>Seller Details</h3>
+                        <p><strong>name : {sellerdetails.name}</strong></p>
+                        <p><strong>Sellerid : {sellerdetails._id}</strong></p>
+                        <p><strong>email : {sellerdetails.phone}</strong></p>
+                        <p><strong>Phone : {sellerdetails.email}</strong></p>
+                    </div>
+                    <div id="bidderdetailsection" style={{display:"block"}}>
+                        <h3 className='mb-3'>Current Bidder Details</h3>
+                        <p><strong>name :  {buyerdetails.name}</strong></p>
+                        <p><strong>id :    {buyerdetails._id}</strong></p>
+                        <p><strong>email : {buyerdetails.phone}</strong></p>
+                        <p><strong>Phone : {buyerdetails.email}</strong></p>
+                    </div>
+                </div>
+                <div id="bidhistoryheading">
+                    <center>Bid History</center>
+                </div>
+                <div id="bidhistorysection">
+                {
+                bidhistory.map((newmap)=>{
+                return(
+                    <div key={newmap._id}>
+                    <div className='d-flex justify-content-between p-3' style={{borderBottom:"1px solid grey"}} >
+                         <strong ><span style={{color:"var(--maincolor)"}}>By : </span>&nbsp;&nbsp;{localStorage.getItem('id')===newmap.bname?<span style={{color:"green"}}>You</span>:<span>{newmap.bname}</span>}</strong>
+                         <h5 style={{color:"grey"}}><span style={{color:"var(--maincolor)"}}>Rs : </span>{newmap.bamt}</h5>
+                        
+                    </div>
+                    </div>
+                )
+            })
+        }
+                
+                </div>
+            </div>
+
+        </>
+    )
 }
 
 export default ProductDetails
