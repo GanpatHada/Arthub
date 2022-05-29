@@ -5,7 +5,9 @@ import { useState } from 'react'
 import Button from '@mui/material/Button';
 import Checkbox from '@mui/material/Checkbox';
 import './Login.css';
+import Whitespinner from './assets/Whitespinner';
 const Login = () => {
+
     useEffect(() => {
         document.getElementById("searchbox").style.display="none";
         document.getElementById("mainart").style.display="none";
@@ -13,6 +15,7 @@ const Login = () => {
     let navigate = useNavigate();
     const [passwordtype, setpasswordtype] = useState("password")
     const [logintext, setlogintext] = useState("Login as Buyer")
+    const [loading, setloading] = useState(false)
     const fun = () => {
         if (document.getElementById("radio2").checked)
             setlogintext("Login as Seller")
@@ -27,6 +30,7 @@ const Login = () => {
     }
     const handleloginsubmit = async (e) => {
         e.preventDefault();
+        setloading(true)
         const emailphone = document.getElementById("emailphone").value;
         const password = document.getElementById("password").value;
         if (document.getElementById("radio2").checked) {
@@ -45,6 +49,7 @@ const Login = () => {
                     alert("sorry! something error has been occured");
                 }
                 else {
+                    setloading(false)
                     localStorage.setItem('token', json.token);
                     localStorage.setItem('name', json.name);
                     localStorage.setItem('role', json.role);
@@ -61,6 +66,7 @@ const Login = () => {
         if (document.getElementById("radio1").checked) {
 
             try {
+                setloading(true)
                 const response = await fetch("http://localhost:8000/api/user/login", {
                     method: 'POST',
                     headers: {
@@ -75,6 +81,7 @@ const Login = () => {
                     alert("sorry! something error has been occured");
                 }
                 else {
+                    setloading(false);
                     localStorage.setItem('token', json.token);
                     localStorage.setItem('name', json.name);
                     localStorage.setItem('role', json.role);
@@ -134,7 +141,7 @@ const Login = () => {
 
 
                 {/* <button type="submit" className="card_button mb-2 mt-3" style={{ width: "100%" }}>{logintext}</button> */}
-                <Button type="submit" className="mb-2 mybtn" style={{width:"100%"}} variant="contained">{logintext}</Button>
+                <Button type="submit" className="mb-2 mybtn" style={{width:"100%"}} variant="contained">{loading?<Whitespinner/>:logintext}</Button>
                 <p>Don't have account <NavLink to="/createaccount"><strong>Sign up</strong></NavLink>&nbsp;here..</p>
 
 

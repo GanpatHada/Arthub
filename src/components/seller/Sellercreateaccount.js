@@ -1,17 +1,19 @@
-import React, { useEffect } from 'react'
+import React, { useEffect} from 'react'
 import { useState } from 'react'
 import './Sellercreateaccount.css'
 import logo from "../icons/newlogo.png"
-import { NavLink } from 'react-router-dom'
+import { NavLink,useNavigate } from 'react-router-dom'
 import Button from '@mui/material/Button';
-
+import Whitespinner from '../assets/Whitespinner';
 const Sellercreateaccount = () => {
+    const navigate=useNavigate();
     useEffect(() => {
         document.getElementById("searchbox").style.display="none";
         document.getElementById("mainart").style.display="none";
         document.getElementById("mainnavbar").style.display="none"}, [])
     const [buttontext, setbuttontext] = useState("Create Buyer Account");
-    const [passwordtype, setpasswordtype] = useState("password")
+    const [passwordtype, setpasswordtype] = useState("password");
+    const [loading, setloading] = useState(false)
     const fun=()=>{
         if(document.getElementById("radio22").checked)
             setbuttontext("Create Seller Account")
@@ -34,8 +36,8 @@ const Sellercreateaccount = () => {
         if (password !== cpassword)
             return alert("password did not match");
         if(document.getElementById("radio11").checked) 
-        {   
-        const response = await fetch("http://localhost:8000/api/user/createuser", {
+        {setloading(true)   
+         const response = await fetch("http://localhost:8000/api/user/createuser", {
             method: 'POST',
             headers: {
                 'Content-type': "application/json"
@@ -48,10 +50,14 @@ const Sellercreateaccount = () => {
              alert("sorry! something error has been occured");
         }
         else
-            alert(`registration successfull as ${json.role}`);
+            {
+            setloading(false) ;   
+            navigate('/login')
+            }
         }
         if(document.getElementById("radio22").checked)
         {
+            setloading(true)
             const response = await fetch("http://localhost:8000/api/seller/createseller", {
                 method: 'POST',
                 headers: {
@@ -65,7 +71,11 @@ const Sellercreateaccount = () => {
                     alert("sorry! something error has been occured");
                 }
             else
-                alert(`registration successfull as ${json.role}`);    
+                {
+                    setloading(false);
+                    navigate('/login')
+
+                }  
         }
 }
     return (
@@ -119,7 +129,7 @@ const Sellercreateaccount = () => {
                     <label className="ms-2" htmlFor="radio22">Seller</label>
                 </div>
                 {/* <button type="submit" className="card_button mb-2" style={{ width: "100%" }}>{buttontext}</button> */}
-                <Button type="submit" className="mb-2 mybtn" variant="contained">{buttontext}</Button>
+                <Button type="submit" className="mb-2 mybtn" variant="contained">{loading?<Whitespinner/>:buttontext}</Button>
                 <p>By creating account, You agree out <a href="/"><strong>terms and condition</strong></a> and <a href=""><strong>private policy</strong></a></p><hr />
                 <p>already have an account <NavLink to="/Login"><strong>sign-in</strong></NavLink> here</p>
 

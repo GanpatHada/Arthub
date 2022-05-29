@@ -4,12 +4,10 @@ import './ProductDetails.css'
 import FullscreenIcon from '@mui/icons-material/Fullscreen';
 import CloseIcon from '@mui/icons-material/Close';
 const ProductDetails = () => {
-    const [sellerdetails, setsellerdetails] = useState({})
-    const [buyerdetails, setbuyerdetails] = useState({})
-    const [count, setcount] = useState(0)
+    const [sellerdetails, setsellerdetails] = useState({}) 
     const context = useContext(ProductContext);
     const { details,showBidHistory,bidhistory } = context;
-    const { _id, image, title, description, price, sellerid, category, bid, purchasedby } = details;
+    const { _id, image, title, description, price, sellerid, category, bid, status } = details;
     const handlefullscreen = ()=>{
         document.getElementById("fullimage").style.display="block"
         document.getElementById("fullimagecontent").style.display="block"
@@ -32,27 +30,13 @@ const ProductDetails = () => {
         console.log(error);
     }
     }
-    const fetchbuyerdetails=async(purchasedby)=>{
-        try{
-        const response=await fetch(`http://localhost:8000/api/product/buyerdetails/${purchasedby}`,{
-            method:"GET"
-        });
-        const json=await response.json();
-        if(json.success)
-           { setbuyerdetails(json.buyerdetails);   
-             console.table(buyerdetails)
-           }  
-    } catch (error) {
-        console.log(error);
-    }
-    }
+    
 
     
     useEffect(() => {
                  document.getElementById("searchbox").style.display = "none";
                  document.getElementById("mainart").style.display = "none";
                  fetchsellerdetails(sellerid);
-                 fetchbuyerdetails(purchasedby);
                  showBidHistory(_id);
         
     }, [])
@@ -77,11 +61,13 @@ const ProductDetails = () => {
                     </div>
                     <div id="detailssection">
                         <h3>{title}</h3>
-                        <p><strong>Product id : {_id}</strong></p>
-                        <p><strong>category : {category}</strong></p>
-                        <p><strong>Description : estias voluptates quia nihil?</strong></p>
-                        <p><strong>Current Bid : {bid}</strong></p>
-                        <p><strong>Original Price : {price}</strong></p>
+                        <p><strong>Product id : </strong>{_id}</p>
+                        <p><strong>category : </strong>{category}</p>
+                        <p><strong>Description : </strong>{description}</p>
+                        <p><strong>Current Bid : </strong>{bid}</p>
+                        <p><strong>Original Price : </strong>{price}</p>
+                        {status==="sold"?<p style={{color:"red"}}><strong>{status}</strong></p>:<p style={{color:"green"}}><strong>{status}</strong></p>}
+                        
                     </div>
                 </div>
                 <div className="d-flex justify-content-between">
@@ -91,13 +77,6 @@ const ProductDetails = () => {
                         <p><strong>Sellerid : {sellerdetails._id}</strong></p>
                         <p><strong>email : {sellerdetails.phone}</strong></p>
                         <p><strong>Phone : {sellerdetails.email}</strong></p>
-                    </div>
-                    <div id="bidderdetailsection" style={{display:"block"}}>
-                        <h3 className='mb-3'>Current Bidder Details</h3>
-                        <p><strong>name :  {buyerdetails.name}</strong></p>
-                        <p><strong>id :    {buyerdetails._id}</strong></p>
-                        <p><strong>email : {buyerdetails.phone}</strong></p>
-                        <p><strong>Phone : {buyerdetails.email}</strong></p>
                     </div>
                 </div>
                 <div id="bidhistoryheading">

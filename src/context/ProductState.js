@@ -188,8 +188,8 @@ const ProductState = (props) => {
             const json = await response.json();
             setloading(false)
             if(json.success)
-                {setinvoicedetails(json.payment);
-                navigate("/invoice");}
+                {setinvoicedetails(json.payment);      
+                 navigate("/invoice");}
             else
             {
                 console.log(json.message)

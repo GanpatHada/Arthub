@@ -29,6 +29,8 @@ import Footer from './assets/Footer';
 import Mainart from './assets/Mainart';
 import Searchbox from './assets/Searchbox';
 import Paymentfailad from './assets/Paymentfailad';
+import Developer from './Developer';
+import Whitespinner from './assets/Whitespinner';
 const Homepage = () => {
   return (
     <>
@@ -43,7 +45,7 @@ const Homepage = () => {
       <Route exact path="/productdetails" element={<ProductDetails/>}/>        
       <Route exact path="/bidhistory" element={<BidHistory/>}/>        
       <Route exact path="/Welcome" element={<Welcome/>}/>
-      <Route exact path="/about" element={<Invoice/>}/>
+      <Route exact path="/about" element={<About/>}/>
       <Route exact path="/invoice" element={<Invoice/>}/>
       <Route exact path="/accountdetails" element={<Accountdetails/>}/>
       <Route exact path="/uploaditems" element={<Sellitem/>}/>
@@ -53,9 +55,9 @@ const Homepage = () => {
         <Route exact path="createaccount" element={<Sellercreateaccount/>}></Route>
       <Route exact path="/wishlist" element={<Wishlist/>}/>  
       <Route exact path="/mystore" element={<Mystore/>}/>  
-      <Route exact path="/mystoree" element={<Loading/>}/>  
       <Route exact path="/servererror" element={<InternalServerError/>}/>  
       <Route exact path="/paymentfailed" element={<Paymentfailad/>}/>  
+      <Route exact path="/developer" element={<Developer/>}/>  
       <Route exact path="*" element={<PageNotFound/>} />
     </Routes>
     <Footer/>

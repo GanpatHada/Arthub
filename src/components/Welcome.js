@@ -21,7 +21,7 @@ const Welcome = () => {
           <div className="Welcomeheading" style={{ color: "white" }}><b>Welcome to the <br /><span>Arthub</span>
           </b></div>
           <div id='contenttext'>
-            <span>Lorem ipsum dolor, sit  Voluptatem aperiam molestias magnam veniam quas repellat repellendus quod repudiandae rerum illum.</span>
+            <span>A Hub to sell or purchase nft artworks</span>
           </div>
           <div>
             <button id="signupbutton" onClick={() => { navigate('/createaccount') }}>CREATE ACCOUNT</button>

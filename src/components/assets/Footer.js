@@ -27,9 +27,9 @@ const Footer = () => {
         </div>
         <div id="links" className='infobox'>
           <h2>Links</h2>
-          <Link to='/Arthub'>Developer</Link>
-          <Link to='/Arthub'>Blog</Link>
-          <Link to='/Arthub'>About</Link>
+          <Link to='/developer'>Developer</Link>
+          <Link to='/'>Blog</Link>
+          <Link to='/About'>About</Link>
         </div>
         <div id="contact"  className='infobox'>
         <h2>Contact</h2>
